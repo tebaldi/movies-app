@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Services.Dto
 {
-    public class PagedResult<T> : IDataTransferObject
-        where T: IDataTransferObject
+    public class PagedResult<T>
     {
-        public T[] Result { get; set; }
-
-        public int TotalRecords { get; set; }
+        public T[] Results { get; set; }
 
         public int PageIndex { get; set; }
 
-        public int PageSize { get; set; }
+        public int TotalPages { get; set; }
+
+        public int TotalResults { get; set; }
     }
 }

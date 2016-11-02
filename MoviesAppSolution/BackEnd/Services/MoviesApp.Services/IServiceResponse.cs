@@ -11,7 +11,6 @@ namespace MoviesApp.Services
     }
 
     public interface IServiceResponse<out T> : IServiceResponse
-        where T: IDataTransferObject
     {
         T Data { get; }
     }
@@ -22,7 +21,6 @@ namespace MoviesApp.Services
     }
 
     public class ServiceResponse<T> : IServiceResponse<T>
-        where T : IDataTransferObject
     {
         public Guid ResponseKey { get; set; }
 

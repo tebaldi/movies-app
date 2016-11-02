@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesApp.Services.Dto
+namespace MoviesApp.Domain.Model
 {
-    public interface IMovieKey : IDataTransferObject
+    public interface IMovieKey
     {
         int MovieID { get; set; }
 

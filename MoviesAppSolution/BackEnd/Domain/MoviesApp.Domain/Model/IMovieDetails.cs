@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesApp.Services.Dto
+namespace MoviesApp.Domain.Model
 {
     public interface IMovieDetails : IMovie
     {   

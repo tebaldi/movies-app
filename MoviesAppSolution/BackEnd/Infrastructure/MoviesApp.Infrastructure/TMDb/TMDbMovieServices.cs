@@ -1,5 +1,7 @@
-﻿using MoviesApp.Services;
+﻿using MoviesApp.Domain.Model;
+using MoviesApp.Services;
 using MoviesApp.Services.Dto;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +18,31 @@ namespace MoviesApp.Infrastructure.TMDb
                 .ExecuteService()
             {
                 var uri = TMDbApi.UpcomingMovies.CreateUri(1);
-                var json = TMDbApi.MakeApiRequest(uri);
+                var response = TMDbApi.MakeApiRequest(uri);
+
+                var results = response["results"] as JArray;
+                var movies = results.Select(result => new TMDbMovie
+                {
+                    MovieID = int.Parse(result["id"].ToString()),
+                    MovieName = result["title"].ToString(),
+                    //Genre = result["genre_ids"],
+                    PosterImage = result["poster_path"].ToString(),
+                    ReleaseDate = DateTime.Parse(result["release_date"].ToString()),
+                } as IMovie).ToArray();
 
                 var pagedResult = new PagedResult<IMovie>();
-                pagedResult.PageIndex;
-                pagedResult.PageSize;
-                pagedResult.TotalRecords;
-                pagedResult.Result;
+                pagedResult.PageIndex = int.Parse(response["page"].ToString());
+                pagedResult.TotalPages = int.Parse(response["total_pages"].ToString());
+                pagedResult.TotalResults = int.Parse(response["total_results"].ToString());
+                pagedResult.Results = movies;
 
-                var response = new ServiceResponse<PagedResult<IMovie>>
+                var serviceResponse = new ServiceResponse<PagedResult<IMovie>>
                 {
                     ResponseKey = Guid.NewGuid(),
-                    Data = ;
+                    Data = pagedResult
                 };
 
-                return response;
+                return serviceResponse;
             }
         }
 

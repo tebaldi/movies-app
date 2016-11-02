@@ -62,6 +62,10 @@
     <Compile Include="TMDBTests\TMDbApiTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\MoviesApp.Domain\MoviesApp.Domain.csproj">
+      <Project>{60C6139E-FF9E-4832-ABCE-7233DD5AB044}</Project>
+      <Name>MoviesApp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\MoviesApp.Services\MoviesApp.Services.csproj">
       <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
       <Name>MoviesApp.Services</Name>

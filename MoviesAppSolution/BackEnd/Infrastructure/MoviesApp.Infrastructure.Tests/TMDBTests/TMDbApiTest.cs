@@ -21,17 +21,29 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
             var total_pages = response["total_pages"];
             var total_results = response["total_results"];
             var results = response["results"] as Newtonsoft.Json.Linq.JArray;
-            
-            foreach(var r in results)
-            {
-                var id = r["id"];
-                var poster_path = r["poster_path"];
-                var overview = r["overview"];
-                var release_date = r["release_date"];
-                var title = r["title"];
-            }
 
-            Assert.AreEqual(1, response["page"]);            
+            Assert.IsNotNull(page);
+            Assert.IsNotNull(dates);
+            Assert.IsNotNull(total_pages);
+            Assert.IsNotNull(total_results);
+            Assert.IsNotNull(results);
+
+            foreach (var result in results)
+            {
+                var id = result["id"];
+                var poster_path = result["poster_path"];
+                var overview = result["overview"];
+                var release_date = result["release_date"];
+                var title = result["title"];
+                var genre_ids = result["genre_ids"];
+
+                Assert.IsNotNull(id);
+                Assert.IsNotNull(poster_path);
+                Assert.IsNotNull(overview);
+                Assert.IsNotNull(release_date);
+                Assert.IsNotNull(title);
+                Assert.IsNotNull(genre_ids);
+            }
         }
     }
 }

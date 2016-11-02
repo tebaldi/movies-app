@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesApp.Services.Dto
+namespace MoviesApp.Domain.Model
 {
     public interface IMovie : IMovieKey
     {
-        string PosterImage { get; set; }
-
         string Genre { get; set; }
+
+        string PosterImage { get; set; }
 
         DateTime ReleaseDate { get; set; }
     }

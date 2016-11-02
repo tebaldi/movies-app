@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesApp.Services.ServiceFactory;
 using Moq;
 using MoviesApp.Services.Dto;
+using MoviesApp.Domain.Model;
 
 namespace MoviesApp.Services.Tests.TestServiceFactory
 {
@@ -20,9 +21,9 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
 
             var pagedResult = new PagedResult<IMovie>();
             pagedResult.PageIndex = 1;
-            pagedResult.PageSize = 50;
-            pagedResult.TotalRecords = 100;
-            pagedResult.Result = new[] { movie1.Object, movie2.Object };
+            pagedResult.TotalPages = 50;
+            pagedResult.TotalResults = 100;
+            pagedResult.Results = new[] { movie1.Object, movie2.Object };
 
             var getAllMoviesResponse = new Mock<IServiceResponse<PagedResult<IMovie>>>();
             getAllMoviesResponse.Setup(r => r.ResponseKey)
@@ -46,9 +47,9 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             Assert.IsNotNull(response.Data);
 
             Assert.AreEqual("95f17528-8db9-4683-83e8-0daacc4fe71a", response.ResponseKey.ToString());
-            Assert.AreEqual(2, response.Data.Result.Length);
-            Assert.AreEqual(1, response.Data.Result[0].MovieID);
-            Assert.AreEqual(2, response.Data.Result[1].MovieID);
+            Assert.AreEqual(2, response.Data.Results.Length);
+            Assert.AreEqual(1, response.Data.Results[0].MovieID);
+            Assert.AreEqual(2, response.Data.Results[1].MovieID);
         }
 
         [TestMethod]
@@ -59,9 +60,9 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
 
             var pagedResult = new PagedResult<IMovie>();
             pagedResult.PageIndex = 1;
-            pagedResult.PageSize = 50;
-            pagedResult.TotalRecords = 1;
-            pagedResult.Result = new[] { movie1.Object };
+            pagedResult.TotalPages = 50;
+            pagedResult.TotalResults = 1;
+            pagedResult.Results = new[] { movie1.Object };
 
             var searchMovieRequest = new Mock<IServiceRequest<IMovieKey>>();
             searchMovieRequest.Setup(r => r.RequestKey)
@@ -92,8 +93,8 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             Assert.IsNotNull(response.Data);
 
             Assert.AreEqual("95f17528-8db9-4683-83e8-0daacc4fe71a", response.ResponseKey.ToString());
-            Assert.AreEqual(1, response.Data.Result.Length);
-            Assert.AreEqual(1, response.Data.Result[0].MovieID);
+            Assert.AreEqual(1, response.Data.Results.Length);
+            Assert.AreEqual(1, response.Data.Results[0].MovieID);
         }
 
         [TestMethod]

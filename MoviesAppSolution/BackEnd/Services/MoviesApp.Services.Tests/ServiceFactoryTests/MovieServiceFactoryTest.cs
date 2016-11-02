@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MoviesApp.Services.Tests
+namespace MoviesApp.Services.Tests.ServiceFactoryTests
 {
     [TestClass]
-    public class UnitTest1
+    public class MovieServiceFactoryTest
     {
         [TestMethod]
         public void TestMethod1()

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Services.Dto
 {
-    public class MovieSearch : IDataTransferObject
+    public interface IMovieKey : IDataTransferObject
     {
-        public int MovieID { get; set; }
-        public string MovieName { get; set; }
+        int MovieID { get; set; }
+
+        string MovieName { get; set; }
     }
 }

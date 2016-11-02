@@ -38,9 +38,9 @@
     <Folder Include="ServiceResponse\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\MovieSearch.cs" />
-    <Compile Include="Dto\MovieDetails.cs" />
-    <Compile Include="Dto\Movie.cs" />
+    <Compile Include="Dto\IMovieKey.cs" />
+    <Compile Include="Dto\IMovieDetails.cs" />
+    <Compile Include="Dto\IMovie.cs" />
     <Compile Include="Dto\PagedResult.cs" />
     <Compile Include="IDataTransferObject.cs" />
     <Compile Include="IServiceRequest.cs" />

@@ -21,7 +21,7 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             var pagedResult = new PagedResult<IMovie>();
             pagedResult.PageIndex = 1;
             pagedResult.PageSize = 50;
-            pagedResult.TotalRecord = 100;
+            pagedResult.TotalRecords = 100;
             pagedResult.Result = new[] { movie1.Object, movie2.Object };
 
             var getAllMoviesResponse = new Mock<IServiceResponse<PagedResult<IMovie>>>();
@@ -60,7 +60,7 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             var pagedResult = new PagedResult<IMovie>();
             pagedResult.PageIndex = 1;
             pagedResult.PageSize = 50;
-            pagedResult.TotalRecord = 1;
+            pagedResult.TotalRecords = 1;
             pagedResult.Result = new[] { movie1.Object };
 
             var searchMovieRequest = new Mock<IServiceRequest<IMovieKey>>();

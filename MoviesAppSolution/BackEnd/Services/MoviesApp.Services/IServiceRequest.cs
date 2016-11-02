@@ -15,4 +15,17 @@ namespace MoviesApp.Services
     {
         T Data { get; }
     }
+
+    public class ServiceRequest : IServiceRequest
+    {
+        public Guid RequestKey { get; set; }
+    }
+
+    public class ServiceRequest<T> : IServiceRequest<T>
+        where T : IDataTransferObject
+    {
+        public Guid RequestKey { get; set; }
+
+        public T Data { get; set; }
+    }
 }

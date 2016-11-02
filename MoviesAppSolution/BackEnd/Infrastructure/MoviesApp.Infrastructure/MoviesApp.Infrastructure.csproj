@@ -2,14 +2,14 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}</ProjectGuid>
+    <ProjectGuid>{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoviesApp.Services</RootNamespace>
-    <AssemblyName>MoviesApp.Services</AssemblyName>
+    <RootNamespace>MoviesApp.Infrastructure</RootNamespace>
+    <AssemblyName>MoviesApp.Infrastructure</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,19 +34,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TMDb\TMDbApi.cs" />
+    <Compile Include="TMDb\TMDbMovieServiceFactory.cs" />
+    <Compile Include="TMDb\TMDbMovieServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\IMovieKey.cs" />
-    <Compile Include="Dto\IMovieDetails.cs" />
-    <Compile Include="Dto\IMovie.cs" />
-    <Compile Include="Dto\PagedResult.cs" />
-    <Compile Include="IDataTransferObject.cs" />
-    <Compile Include="IServiceRequest.cs" />
-    <Compile Include="IServiceResponse.cs" />
-    <Compile Include="IService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceFactory\IMovieServiceFactory.cs" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\MoviesApp.Services\MoviesApp.Services.csproj">
+      <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
+      <Name>MoviesApp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

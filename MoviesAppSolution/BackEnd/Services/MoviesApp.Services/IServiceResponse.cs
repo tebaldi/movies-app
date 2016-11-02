@@ -15,4 +15,17 @@ namespace MoviesApp.Services
     {
         T Data { get; }
     }
+
+    public class ServiceResponse : IServiceResponse
+    {
+        public Guid ResponseKey { get; set; }
+    }
+
+    public class ServiceResponse<T> : IServiceResponse<T>
+        where T : IDataTransferObject
+    {
+        public Guid ResponseKey { get; set; }
+
+        public T Data { get; set; }
+    }
 }

@@ -31,6 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Services.Tests", "BackEnd\Services\MoviesApp.Services.Tests\MoviesApp.Services.Tests.csproj", "{55D71739-78B7-431E-8868-01186FF9DDA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.MobileData", "BackEnd\Infrastructure\MoviesApp.Infrastructure.MobileData\MoviesApp.Infrastructure.MobileData.csproj", "{661A57A4-18A3-484B-810B-3CB75558B779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.MobileData.Tests", "BackEnd\Infrastructure\MoviesApp.Infrastructure.MobileData.Tests\MoviesApp.Infrastructure.MobileData.Tests.csproj", "{38EF8B50-88E7-48DE-B484-D549285DCBC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure", "BackEnd\Infrastructure\MoviesApp.Infrastructure\MoviesApp.Infrastructure.csproj", "{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.Tests", "BackEnd\Infrastructure\MoviesApp.Infrastructure.Tests\MoviesApp.Infrastructure.Tests.csproj", "{00120F6D-A47E-442F-BBB8-D919D990B292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +77,24 @@ Global
 		{55D71739-78B7-431E-8868-01186FF9DDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D71739-78B7-431E-8868-01186FF9DDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D71739-78B7-431E-8868-01186FF9DDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +112,9 @@ Global
 		{C8008E63-1398-407A-A259-07C7E1601A76} = {D778FE2A-5D87-4B7A-B6C3-A9012BF6C63D}
 		{2245D145-ECCF-4A12-B160-81583AD07F83} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
 		{55D71739-78B7-431E-8868-01186FF9DDA3} = {D22FDF99-3FE3-49FD-90D4-52195FFB306D}
+		{661A57A4-18A3-484B-810B-3CB75558B779} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{38EF8B50-88E7-48DE-B484-D549285DCBC0} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{00120F6D-A47E-442F-BBB8-D919D990B292} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
 	EndGlobalSection
 EndGlobal

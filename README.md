@@ -13,4 +13,5 @@ If not, please access the NuggetPackeged Manager for the solution and restore fr
 
 THIRD-PARTY LIBRARIES
 * Moq v4.5.22 - Moq is the most popular and friendly mocking framework for .NET
+* Newtonsoft.Json 9.0.1 - Json.NET is a popular high-performance JSON framework for .NET
 * Autofac - 

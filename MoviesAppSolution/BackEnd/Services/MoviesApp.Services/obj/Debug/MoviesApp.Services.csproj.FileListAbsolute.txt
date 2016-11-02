@@ -1,5 +1,0 @@
-D:\Fábio\Git\movies-app\MoviesAppSolution\BackEnd\Services\MoviesApp.Services\bin\Debug\MoviesApp.Services.dll
-D:\Fábio\Git\movies-app\MoviesAppSolution\BackEnd\Services\MoviesApp.Services\bin\Debug\MoviesApp.Services.pdb
-D:\Fábio\Git\movies-app\MoviesAppSolution\BackEnd\Services\MoviesApp.Services\obj\Debug\MoviesApp.Services.csprojResolveAssemblyReference.cache
-D:\Fábio\Git\movies-app\MoviesAppSolution\BackEnd\Services\MoviesApp.Services\obj\Debug\MoviesApp.Services.dll
-D:\Fábio\Git\movies-app\MoviesAppSolution\BackEnd\Services\MoviesApp.Services\obj\Debug\MoviesApp.Services.pdb

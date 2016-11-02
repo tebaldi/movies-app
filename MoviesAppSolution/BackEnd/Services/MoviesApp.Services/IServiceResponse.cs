@@ -10,7 +10,7 @@ namespace MoviesApp.Services
         Guid ResponseKey { get; }
     }
 
-    public interface IServiceResponse<T> : IServiceResponse
+    public interface IServiceResponse<out T> : IServiceResponse
         where T: IDataTransferObject
     {
         T Data { get; }

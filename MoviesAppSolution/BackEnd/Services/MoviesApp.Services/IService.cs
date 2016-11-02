@@ -16,7 +16,7 @@ namespace MoviesApp.Services
         IServiceResponse<TResponse> ExecuteService();
     }
 
-    public interface IService<TRequest, TResponse> : IService
+    public interface IService<TRequest, out TResponse> : IService
         where TRequest : IDataTransferObject
         where TResponse : IDataTransferObject
     {

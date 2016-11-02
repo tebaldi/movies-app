@@ -11,8 +11,8 @@ namespace MoviesApp.Services.ServiceFactory
     {
         IService<PagedResult<IMovie>> CreateGetAllMoviesService();
 
-        IService<PagedResult<IMovie>, IMovieKey> CreateSearchMoviesService();
+        IService<IMovieKey, PagedResult<IMovie>> CreateSearchMoviesService();
 
-        IService<IMovieDetails, IMovieKey> CreateGetMovieDetailsService();
+        IService<IMovieKey, IMovieDetails> CreateGetMovieDetailsService();
     }
 }

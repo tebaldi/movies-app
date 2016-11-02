@@ -10,7 +10,8 @@ namespace MoviesApp.Services
         Guid RequestKey { get; }
     }
 
-    public interface IServiceRequest<T> where T : IDataTransferObject
+    public interface IServiceRequest<T> : IServiceRequest
+        where T : IDataTransferObject
     {
         T Data { get; }
     }

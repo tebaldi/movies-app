@@ -9,7 +9,7 @@ namespace MoviesApp.Services.Dto
     public class PagedResult<T> : IDataTransferObject
         where T: IDataTransferObject
     {
-        public T[] Data { get; set; }
+        public T[] Result { get; set; }
 
         public int TotalRecord { get; set; }
 

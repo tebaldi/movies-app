@@ -12,12 +12,14 @@ namespace MoviesApp.Infrastructure.TMDb
 {
     public class TMDbMovieServices
     {
-        public class GetAllMoviesService : IService<PagedResult<IMovie>>
+        public class GetAllMoviesService : IService<IPaginable, PagedResult<IMovie>>
         {
-            IServiceResponse<PagedResult<IMovie>> IService<PagedResult<IMovie>>
-                .ExecuteService()
+
+            IServiceResponse<PagedResult<IMovie>> IService<IPaginable, PagedResult<IMovie>>
+                .ExecuteService(IServiceRequest<IPaginable> request)
             {
-                var uri = TMDbApi.UpcomingMovies.CreateUri(1);
+                var page = request.Data.Page;
+                var uri = TMDbApi.UpcomingMovies.CreateUri(page);
                 var response = TMDbApi.MakeApiRequest(uri);
 
                 var results = response["results"] as JArray;

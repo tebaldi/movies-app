@@ -5,13 +5,14 @@ using MoviesApp.Services.ServiceFactory;
 using MoviesApp.Services;
 using MoviesApp.Services.Dto;
 using MoviesApp.Domain.Model;
+using Moq;
 
 namespace MoviesApp.Infrastructure.Tests.TMDBTests
 {
     [TestClass]
     public class TMDbMovieServicesTest
     {
-        public readonly IService<PagedResult<IMovie>> getAllMoviesService;
+        public readonly IService<IPaginable, PagedResult<IMovie>> getAllMoviesService;
         public readonly IService<IMovieKey, IMovieDetails> getMovieDetailsService;
         public readonly IService<IMovieKey, PagedResult<IMovie>> searchMoviesService;
 
@@ -25,7 +26,13 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
         [TestMethod]
         public void ShouldGetAllMovies()
         {
-            var allMovies = getAllMoviesService.ExecuteService();
+            var paginable = new Mock<IPaginable>();
+            paginable.Setup(p => p.Page).Returns(1);
+
+            var request = new Mock<IServiceRequest<IPaginable>>();
+            request.Setup(r => r.Data).Returns(paginable.Object);
+
+            var allMovies = getAllMoviesService.ExecuteService(request.Object);
             Assert.IsNotNull(allMovies);
             Assert.IsNotNull(allMovies.Data);
             Assert.IsNotNull(allMovies.Data.Results);

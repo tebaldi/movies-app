@@ -31,8 +31,8 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             getAllMoviesResponse.Setup(r => r.Data)
                 .Returns(pagedResult);
 
-            var getAllMoviesService = new Mock<IService<PagedResult<IMovie>>>();
-            getAllMoviesService.Setup(s => s.ExecuteService())
+            var getAllMoviesService = new Mock<IService<IPaginable, PagedResult<IMovie>>>();
+            getAllMoviesService.Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IPaginable>>()))
                 .Returns(getAllMoviesResponse.Object);
 
             var factory = new Mock<IMovieServiceFactory>();
@@ -42,7 +42,13 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             var movieService = factory.Object.CreateGetAllMoviesService();
             Assert.IsNotNull(movieService);
 
-            var response = movieService.ExecuteService();
+            var paginable = new Mock<IPaginable>();
+            paginable.Setup(p => p.Page).Returns(1);
+
+            var request = new Mock<IServiceRequest<IPaginable>>();
+            request.Setup(r => r.Data).Returns(paginable.Object);
+
+            var response = movieService.ExecuteService(request.Object);
             Assert.IsNotNull(response);
             Assert.IsNotNull(response.Data);
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MoviesApp.Services
 {
-    public class Class1
+    public interface IDataTransferObject
     {
     }
 }

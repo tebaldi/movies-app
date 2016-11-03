@@ -32,25 +32,32 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
             var request = new Mock<IServiceRequest<IPaginable>>();
             request.Setup(r => r.Data).Returns(paginable.Object);
 
-            var allMovies = getAllMoviesService.ExecuteService(request.Object);
-            Assert.IsNotNull(allMovies);
-            Assert.IsNotNull(allMovies.Data);
-            Assert.IsNotNull(allMovies.Data.Results);
-            Assert.AreNotEqual(Guid.Empty, allMovies.ResponseKey);
-            Assert.AreNotEqual(0, allMovies.Data.PageIndex);
-            Assert.AreNotEqual(0, allMovies.Data.TotalResults);
-            Assert.AreNotEqual(0, allMovies.Data.TotalPages);
-            Assert.IsTrue(allMovies.Data.Results.Length > 0);
-        }
-
-        [TestMethod]
-        public void ShouldCreateGetMovieDetailsService()
-        {
-            Assert.Inconclusive();
+            var movies = getAllMoviesService.ExecuteService(request.Object);
+            Assert.IsNotNull(movies);
+            Assert.IsNotNull(movies.Data);
+            Assert.IsNotNull(movies.Data.Results);
+            Assert.AreNotEqual(Guid.Empty, movies.ResponseKey);
+            Assert.AreNotEqual(0, movies.Data.PageIndex);
+            Assert.AreNotEqual(0, movies.Data.TotalResults);
+            Assert.AreNotEqual(0, movies.Data.TotalPages);
+            Assert.IsTrue(movies.Data.Results.Length > 0);
         }
 
         [TestMethod]
         public void ShouldCreateSearchMoviesService()
+        {
+            //var paginable = new Mock<IMovieKey>();
+            //paginable.Setup(p => p.Page).Returns(1);
+
+            //var request = new Mock<IServiceRequest<IMovieKey>>();
+            //request.Setup(r => r.Data).Returns(paginable.Object);
+
+            //var movies = searchMoviesService.ExecuteService(request.Object);
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void ShouldCreateGetMovieDetailsService()
         {
             Assert.Inconclusive();
         }

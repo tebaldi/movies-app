@@ -16,30 +16,17 @@ namespace MoviesApp.Infrastructure.TMDb
         {
             IServiceResponse<PagedResult<IMovie>> IService<IMovieSearch, PagedResult<IMovie>>
                 .ExecuteService(IServiceRequest<IMovieSearch> request)
-            {   
+            {
                 var uri = String.IsNullOrEmpty(request.Data.MovieName)
                     ? TMDbApi.UpcomingMovies.CreateUri(request.Data.Page)
                     : TMDbApi.SearchMovie.CreateUri(request.Data.MovieName, request.Data.Page);
                                 
                 var response = TMDbApi.MakeApiRequest(uri);
-
+                
                 var results = response["results"] as JArray;
-                var movies = results.Select(result =>
-                {
-                    var release_date = String.IsNullOrEmpty(result["release_date"].ToString())
-                        ? default(DateTime)
-                        : DateTime.Parse(result["release_date"].ToString());
 
-                    return new TMDbMovie
-                    {
-                        MovieID = int.Parse(result["id"].ToString()),
-                        MovieName = result["title"].ToString(),
-                        Genre = result["genre_ids"].ToString(),
-                        ImagePath = result["poster_path"].ToString(),
-                        ReleaseDate = release_date
-                    } as IMovie;
-
-                }).ToArray();
+                var movies = results.Select(result => 
+                    new TMDbMovie(result) as IMovie).ToArray();
 
                 var pagedResult = new PagedResult<IMovie>();
                 pagedResult.PageIndex = int.Parse(response["page"].ToString());
@@ -65,19 +52,7 @@ namespace MoviesApp.Infrastructure.TMDb
                 var uri = TMDbApi.MovieDetails.CreateUri(request.Data.MovieID);
                 var response = TMDbApi.MakeApiRequest(uri);
 
-                var release_date = String.IsNullOrEmpty(response["release_date"].ToString())
-                        ? default(DateTime)
-                        : DateTime.Parse(response["release_date"].ToString());
-
-                var movie = new TMDbMovie
-                {
-                    MovieID = int.Parse(response["id"].ToString()),
-                    MovieName = response["title"].ToString(),
-                    Genre = response["genres"].ToString(),
-                    OverView = response["overview"].ToString(),
-                    ImagePath = response["poster_path"].ToString(),
-                    ReleaseDate = release_date,
-                };
+                var movie = new TMDbMovie(response);
 
                 var serviceResponse = new ServiceResponse<IMovieDetails>
                 {

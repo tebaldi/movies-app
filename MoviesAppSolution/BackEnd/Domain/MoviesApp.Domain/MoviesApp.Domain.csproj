@@ -39,7 +39,7 @@
   <ItemGroup>
     <Compile Include="Model\IMovie.cs" />
     <Compile Include="Model\IMovieDetails.cs" />
-    <Compile Include="Model\IPaginable.cs" />
+    <Compile Include="Model\IMovieSearch.cs" />
     <Compile Include="Model\IMovieKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,6 +8,8 @@ namespace MoviesApp.Domain.Model
 {
     public interface IMovie : IMovieKey
     {
+        string MovieName { get; set; }
+
         string Genre { get; set; }
 
         string PosterImage { get; set; }

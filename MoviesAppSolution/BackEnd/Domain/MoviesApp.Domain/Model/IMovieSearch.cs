@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Domain.Model
 {
-    public interface IPaginable
+    public interface IMovieSearch
     {
+        string MovieName { get; }
+
         int Page { get; }
     }
 }

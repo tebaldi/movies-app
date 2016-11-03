@@ -10,9 +10,7 @@ namespace MoviesApp.Services.ServiceFactory
 {
     public interface IMovieServiceFactory
     {
-        IService<IPaginable, PagedResult<IMovie>> CreateGetAllMoviesService();
-
-        IService<IMovieKey, PagedResult<IMovie>> CreateSearchMoviesService();
+        IService<IMovieSearch, PagedResult<IMovie>> CreateGetMoviesService();
 
         IService<IMovieKey, IMovieDetails> CreateGetMovieDetailsService();
     }

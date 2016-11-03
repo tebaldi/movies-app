@@ -9,7 +9,5 @@ namespace MoviesApp.Domain.Model
     public interface IMovieKey
     {
         int MovieID { get; set; }
-
-        string MovieName { get; set; }
     }
 }

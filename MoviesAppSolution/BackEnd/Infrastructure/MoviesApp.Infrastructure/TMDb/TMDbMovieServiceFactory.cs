@@ -12,22 +12,16 @@ namespace MoviesApp.Infrastructure.TMDb
 {
     public class TMDbMovieServiceFactory : IMovieServiceFactory
     {
-        IService<IPaginable, PagedResult<IMovie>> IMovieServiceFactory
-            .CreateGetAllMoviesService()
+        IService<IMovieSearch, PagedResult<IMovie>> IMovieServiceFactory
+            .CreateGetMoviesService()
         {
-            return new TMDbMovieServices.GetAllMoviesService();
+            return new TMDbMovieServices.GetMoviesService();
         }
 
         IService<IMovieKey, IMovieDetails> IMovieServiceFactory
             .CreateGetMovieDetailsService()
         {
             return new TMDbMovieServices.GetMovieDetailsService();
-        }
-
-        IService<IMovieKey, PagedResult<IMovie>> IMovieServiceFactory
-            .CreateSearchMoviesService()
-        {
-            return new TMDbMovieServices.SearchMoviesService();
         }
     }
 }

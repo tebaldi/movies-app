@@ -11,7 +11,7 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
     public class MovieServiceFactoryTest
     {
         [TestMethod]
-        public void ShouldCreateGetAllMoviesService()
+        public void ShouldCreateGetMoviesService()
         {
             var movie1 = new Mock<IMovie>();
             movie1.Setup(m => m.MovieID).Returns(1);
@@ -31,22 +31,23 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             getAllMoviesResponse.Setup(r => r.Data)
                 .Returns(pagedResult);
 
-            var getAllMoviesService = new Mock<IService<IPaginable, PagedResult<IMovie>>>();
-            getAllMoviesService.Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IPaginable>>()))
+            var getAllMoviesService = new Mock<IService<IMovieSearch, PagedResult<IMovie>>>();
+            getAllMoviesService.Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IMovieSearch>>()))
                 .Returns(getAllMoviesResponse.Object);
 
             var factory = new Mock<IMovieServiceFactory>();
-            factory.Setup(f => f.CreateGetAllMoviesService())
+            factory.Setup(f => f.CreateGetMoviesService())
                 .Returns(getAllMoviesService.Object);
 
-            var movieService = factory.Object.CreateGetAllMoviesService();
+            var movieService = factory.Object.CreateGetMoviesService();
             Assert.IsNotNull(movieService);
 
-            var paginable = new Mock<IPaginable>();
-            paginable.Setup(p => p.Page).Returns(1);
+            var movieSearch = new Mock<IMovieSearch>();
+            movieSearch.Setup(p => p.MovieName).Returns("query_name");
+            movieSearch.Setup(p => p.Page).Returns(1);
 
-            var request = new Mock<IServiceRequest<IPaginable>>();
-            request.Setup(r => r.Data).Returns(paginable.Object);
+            var request = new Mock<IServiceRequest<IMovieSearch>>();
+            request.Setup(r => r.Data).Returns(movieSearch.Object);
 
             var response = movieService.ExecuteService(request.Object);
             Assert.IsNotNull(response);
@@ -56,51 +57,6 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             Assert.AreEqual(2, response.Data.Results.Length);
             Assert.AreEqual(1, response.Data.Results[0].MovieID);
             Assert.AreEqual(2, response.Data.Results[1].MovieID);
-        }
-
-        [TestMethod]
-        public void ShouldCreateSearchMoviesService()
-        {
-            var movie1 = new Mock<IMovie>();
-            movie1.Setup(m => m.MovieID).Returns(1);
-
-            var pagedResult = new PagedResult<IMovie>();
-            pagedResult.PageIndex = 1;
-            pagedResult.TotalPages = 50;
-            pagedResult.TotalResults = 1;
-            pagedResult.Results = new[] { movie1.Object };
-
-            var searchMovieRequest = new Mock<IServiceRequest<IMovieKey>>();
-            searchMovieRequest.Setup(r => r.RequestKey)
-                .Returns(Guid.Parse("95f17528-8db9-4683-83e8-0daacc4fe71a"));
-            searchMovieRequest.Setup(r => r.Data)
-                .Returns(movie1.Object);
-
-            var searchMovieResponse = new Mock<IServiceResponse<PagedResult<IMovie>>>();
-            searchMovieResponse.Setup(r => r.ResponseKey)
-                .Returns(Guid.Parse("95f17528-8db9-4683-83e8-0daacc4fe71a"));
-            searchMovieResponse.Setup(r => r.Data)
-                .Returns(pagedResult);
-
-            var searchMoviesService = new Mock<IService<IMovieKey, PagedResult<IMovie>>>();
-            searchMoviesService
-                .Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IMovieKey>>()))
-                .Returns(searchMovieResponse.Object);
-
-            var factory = new Mock<IMovieServiceFactory>();            
-            factory.Setup(f => f.CreateSearchMoviesService())
-                .Returns(searchMoviesService.Object);
-
-            var movieService = factory.Object.CreateSearchMoviesService();
-            Assert.IsNotNull(movieService);
-
-            var response = movieService.ExecuteService(searchMovieRequest.Object);
-            Assert.IsNotNull(response);
-            Assert.IsNotNull(response.Data);
-
-            Assert.AreEqual("95f17528-8db9-4683-83e8-0daacc4fe71a", response.ResponseKey.ToString());
-            Assert.AreEqual(1, response.Data.Results.Length);
-            Assert.AreEqual(1, response.Data.Results[0].MovieID);
         }
 
         [TestMethod]

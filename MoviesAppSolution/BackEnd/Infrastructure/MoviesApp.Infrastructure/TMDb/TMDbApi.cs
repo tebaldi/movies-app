@@ -49,9 +49,9 @@ namespace MoviesApp.Infrastructure.TMDb
             private const string Query = "query";
             private const string Page = "page";
 
-            public static string CreateUri(string query, int page)
+            public static string CreateUri(string movieName, int page)
             {
-                var uri = $"{BaseUrl}{APIVersion}{Action}?{API_Key}={Key}&{Language}=en-US&{Query}={query}&{Page}={page}";
+                var uri = $"{BaseUrl}{APIVersion}{Action}?{API_Key}={Key}&{Language}=en-US&{Query}={movieName}&{Page}={page}";
                 return uri;
             }
         }

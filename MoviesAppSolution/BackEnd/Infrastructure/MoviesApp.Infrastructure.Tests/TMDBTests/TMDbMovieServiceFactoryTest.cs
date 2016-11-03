@@ -16,20 +16,12 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
         }
 
         [TestMethod]
-        public void ShouldCreateGetAllMoviesService()
+        public void ShouldCreateGetMoviesService()
         {
-            var service = factory.CreateGetAllMoviesService();
+            var service = factory.CreateGetMoviesService();
             Assert.IsNotNull(service);
-            Assert.IsInstanceOfType(service, typeof(TMDbMovieServices.GetAllMoviesService));
-        }
-
-        [TestMethod]
-        public void ShouldCreateSearchMoviesService()
-        {
-            var service = factory.CreateSearchMoviesService();
-            Assert.IsNotNull(service);
-            Assert.IsInstanceOfType(service, typeof(TMDbMovieServices.SearchMoviesService));
-        }
+            Assert.IsInstanceOfType(service, typeof(TMDbMovieServices.GetMoviesService));
+        }        
 
         [TestMethod]
         public void ShouldCreateGetMovieDetailsService()

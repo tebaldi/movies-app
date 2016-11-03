@@ -12,27 +12,25 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
     [TestClass]
     public class TMDbMovieServicesTest
     {
-        public readonly IService<IPaginable, PagedResult<IMovie>> getAllMoviesService;
+        public readonly IService<IMovieSearch, PagedResult<IMovie>> getUpcomingMoviesService;
         public readonly IService<IMovieKey, IMovieDetails> getMovieDetailsService;
-        public readonly IService<IMovieKey, PagedResult<IMovie>> searchMoviesService;
 
         public TMDbMovieServicesTest()
         {
-            getAllMoviesService = new TMDbMovieServices.GetAllMoviesService();
+            getUpcomingMoviesService = new TMDbMovieServices.GetMoviesService();
             getMovieDetailsService = new TMDbMovieServices.GetMovieDetailsService();
-            searchMoviesService = new TMDbMovieServices.SearchMoviesService();
         }
 
         [TestMethod]
-        public void ShouldGetAllMovies()
+        public void ShouldGetUpcomingMovies()
         {
-            var paginable = new Mock<IPaginable>();
+            var paginable = new Mock<IMovieSearch>();
             paginable.Setup(p => p.Page).Returns(1);
 
-            var request = new Mock<IServiceRequest<IPaginable>>();
+            var request = new Mock<IServiceRequest<IMovieSearch>>();
             request.Setup(r => r.Data).Returns(paginable.Object);
 
-            var movies = getAllMoviesService.ExecuteService(request.Object);
+            var movies = getUpcomingMoviesService.ExecuteService(request.Object);
             Assert.IsNotNull(movies);
             Assert.IsNotNull(movies.Data);
             Assert.IsNotNull(movies.Data.Results);
@@ -44,20 +42,13 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
         }
 
         [TestMethod]
-        public void ShouldCreateSearchMoviesService()
-        {
-            //var paginable = new Mock<IMovieKey>();
-            //paginable.Setup(p => p.Page).Returns(1);
-
-            //var request = new Mock<IServiceRequest<IMovieKey>>();
-            //request.Setup(r => r.Data).Returns(paginable.Object);
-
-            //var movies = searchMoviesService.ExecuteService(request.Object);
+        public void ShouldSearchUpcomingMoviesByMovieName()
+        {   
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void ShouldCreateGetMovieDetailsService()
+        public void ShouldGetMovieDetails()
         {
             Assert.Inconclusive();
         }

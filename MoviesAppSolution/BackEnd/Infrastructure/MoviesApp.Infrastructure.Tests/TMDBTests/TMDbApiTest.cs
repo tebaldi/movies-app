@@ -20,7 +20,7 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
             var page = response["page"];
             var total_pages = response["total_pages"];
             var total_results = response["total_results"];
-            var results = response["results"] as Newtonsoft.Json.Linq.JArray;
+            var results = response["results"] as JArray;
 
             Assert.IsNotNull(page);
             Assert.IsNotNull(total_pages);

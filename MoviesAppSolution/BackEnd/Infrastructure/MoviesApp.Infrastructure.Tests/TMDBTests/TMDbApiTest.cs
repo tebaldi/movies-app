@@ -161,14 +161,14 @@ namespace MoviesApp.Infrastructure.Tests.TMDBTests
         [TestMethod]
         public void SholdLoadImageLogoSize()
         {
-            var uri = TMDbApi.LoadImage.CreateUri("/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", true);
+            var uri = TMDbApi.ImagePath.CreateUri("/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", true);
             Assert.AreEqual("http://image.tmdb.org/t/p/w154/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", uri);
         }
 
         [TestMethod]
         public void SholdLoadImageNormalSize()
         {
-            var uri = TMDbApi.LoadImage.CreateUri("/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", false);
+            var uri = TMDbApi.ImagePath.CreateUri("/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", false);
             Assert.AreEqual("http://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg", uri);
         }
     }

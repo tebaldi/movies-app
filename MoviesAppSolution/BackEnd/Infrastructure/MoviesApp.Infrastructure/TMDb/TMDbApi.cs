@@ -95,22 +95,31 @@ namespace MoviesApp.Infrastructure.TMDb
             }
         }
 
-        public class LoadImage
+        public class ImagePath
         {
             private const string Configuration = "/configuration";
             private const string LogoSize = "w154";
             private const string NormalSize = "w500";
             private const string API_Key = "api_key";
 
-            public static string CreateUri(string path, bool logoSize)
+            private static string BaseUrl
             {
-                var configUri = $"{BaseUrl}{APIVersion}{Configuration}?{API_Key}={Key}";
-                var configResponse = MakeApiRequest(configUri);
-                var images = configResponse["images"];
-                var base_url = images["base_url"].ToString();
+                get
+                {
+                    var configUri = $"{TMDbApi.BaseUrl}{APIVersion}{Configuration}?{API_Key}={Key}";
+                    var configResponse = MakeApiRequest(configUri);
+                    var images = configResponse["images"];
+                    var base_url = images["base_url"].ToString();
+
+                    return base_url;
+                }
+            }
+
+            public static string CreateUri(string path, bool logoSize)
+            {   
                 var size = logoSize ? LogoSize : NormalSize;
 
-                var uri = $"{base_url}{size}{path}";
+                var uri = $"{BaseUrl}{size}{path}";
                 return uri;
             }
         }

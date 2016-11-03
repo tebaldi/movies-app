@@ -35,7 +35,8 @@ namespace MoviesApp.Infrastructure.TMDb
             MovieID = int.Parse(token["id"].ToString());
             MovieName = token["title"].ToString();
             Genre = string.Join(", ", genresArray);
-            ImagePath = token["poster_path"].ToString();
+            OverView = token["overview"] != null ? token["overview"].ToString() : string.Empty;
+            ImagePath = TMDbApi.ImagePath.CreateUri(token["poster_path"].ToString(), true);
             ReleaseDate = String.IsNullOrEmpty(token["release_date"].ToString())
                         ? default(DateTime)
                         : DateTime.Parse(token["release_date"].ToString());

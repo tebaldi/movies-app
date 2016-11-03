@@ -66,7 +66,7 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             movie.Setup(m => m.MovieID).Returns(1);
             movie.Setup(m => m.MovieName).Returns("MovieName");
             movie.Setup(m => m.Genre).Returns("Genre");
-            movie.Setup(m => m.PosterImage).Returns("PosterImage");
+            movie.Setup(m => m.ImagePath).Returns("PosterImage");
             movie.Setup(m => m.ReleaseDate).Returns(DateTime.Today);
             movie.Setup(m => m.OverView).Returns("OverView");
 
@@ -102,7 +102,7 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             Assert.AreEqual(1, response.Data.MovieID);
             Assert.AreEqual("MovieName", response.Data.MovieName);
             Assert.AreEqual("Genre", response.Data.Genre);
-            Assert.AreEqual("PosterImage", response.Data.PosterImage);
+            Assert.AreEqual("PosterImage", response.Data.ImagePath);
             Assert.AreEqual("OverView", response.Data.OverView);
             Assert.AreEqual(DateTime.Today, response.Data.ReleaseDate);
         }

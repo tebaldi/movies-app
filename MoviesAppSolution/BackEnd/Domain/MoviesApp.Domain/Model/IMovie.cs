@@ -12,7 +12,7 @@ namespace MoviesApp.Domain.Model
 
         string Genre { get; set; }
 
-        string PosterImage { get; set; }
+        string ImagePath { get; set; }
 
         DateTime ReleaseDate { get; set; }
     }

@@ -10,7 +10,7 @@ using MoviesApp.Domain.Model;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    public class TMDbMovieServiceFactory : IMovieServiceFactory
+    internal class TMDbMovieServiceFactory : IMovieServiceFactory
     {
         IService<IMovieSearch, PagedResult<IMovie>> IMovieServiceFactory
             .CreateGetMoviesService()

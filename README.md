@@ -21,7 +21,7 @@ ARCHTECTURE CONSIDERATIONS
 	* INFRASTRUCTURE - Here stands all the code that is related to technology specifics that aids the system fo function
 		* SERVER - Here stands all the code that is technology specific for the server side of the application
 		* MOBILE - Here stands all the code thath is technology specific for the mobile side of the application
-	* SERVICES - Here stands all the code that abstract the access of the system´s internal structure for the client to access
+	* SERVICES - Here stands all the code that abstract the access of the system´s internal structure and provides and end point for the clients
 	
 * FRONTEND - Here stands all the code that is related to the UI and UX
 	* XAMARIN - Here stands all the code that use Xamarin technology for display the front-end for the users

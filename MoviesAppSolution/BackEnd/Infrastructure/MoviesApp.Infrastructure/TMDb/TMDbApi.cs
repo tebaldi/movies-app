@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    public class TMDbApi
+    internal class TMDbApi
     {
         private const string Key = "1f54bd990f1cdfb230adb312546d765d";
         private const string BaseUrl = "https://api.themoviedb.org/";

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    public class TMDbGenre
+    internal class TMDbGenre
     {
         public TMDbGenre(JToken token)
         {

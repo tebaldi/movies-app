@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    public class TMDbMovieServices
+    internal class TMDbMovieServices
     {
         public class GetMoviesService : IService<IMovieSearch, PagedResult<IMovie>>
         {

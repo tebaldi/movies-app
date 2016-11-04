@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    public class TMDbCache
+    internal class TMDbCache
     {
         private static string _baseImagesUrl;
         public static string BaseImagesUrl

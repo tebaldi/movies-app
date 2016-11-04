@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    class TMDbMovie : IMovieDetails
+    internal class TMDbMovie : IMovieDetails
     {
         public TMDbMovie(JToken token)
         {

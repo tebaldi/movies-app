@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 [assembly: InternalsVisibleTo("MoviesApp.Domain.Tests")]
+[assembly: InternalsVisibleTo("MoviesApp.Services")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -70,13 +70,13 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MoviesApp.Infrastructure.ServerData\MoviesApp.Infrastructure.ServerData.csproj">
-      <Project>{0a5b5012-f240-4bef-8ab4-c5ce2d2bb2ad}</Project>
-      <Name>MoviesApp.Infrastructure.ServerData</Name>
-    </ProjectReference>
+    <Folder Include="ServiceFactoryTests\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ServiceFactoryTests\" />
+    <ProjectReference Include="..\MoviesApp.Infrastructure.MobileData\MoviesApp.Infrastructure.MobileData.csproj">
+      <Project>{661a57a4-18a3-484b-810b-3cb75558b779}</Project>
+      <Name>MoviesApp.Infrastructure.MobileData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

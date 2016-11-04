@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
-[assembly: InternalsVisibleTo("MoviesApp.Infrastructure.Tests")]
+[assembly: InternalsVisibleTo("MoviesApp.Infrastructure.TMDb.Tests")]
 
 // Version information for an assembly consists of the following four values:
 //

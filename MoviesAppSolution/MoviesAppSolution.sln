@@ -27,9 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Domain.Tests", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Services.Tests", "BackEnd\Services\MoviesApp.Services.Tests\MoviesApp.Services.Tests.csproj", "{55D71739-78B7-431E-8868-01186FF9DDA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure", "BackEnd\Infrastructure\MoviesApp.Infrastructure\MoviesApp.Infrastructure.csproj", "{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.TMDb", "BackEnd\Infrastructure\MoviesApp.Infrastructure\MoviesApp.Infrastructure.TMDb.csproj", "{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.Tests", "BackEnd\Infrastructure\MoviesApp.Infrastructure.Tests\MoviesApp.Infrastructure.Tests.csproj", "{00120F6D-A47E-442F-BBB8-D919D990B292}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.TMDb.Tests", "BackEnd\Infrastructure\MoviesApp.Infrastructure.Tests\MoviesApp.Infrastructure.TMDb.Tests.csproj", "{00120F6D-A47E-442F-BBB8-D919D990B292}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{C0B8E263-8D27-4BEF-82DE-2A5677F7727A}"
 EndProject

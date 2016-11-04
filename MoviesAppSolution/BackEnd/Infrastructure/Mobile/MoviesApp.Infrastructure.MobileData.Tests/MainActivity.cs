@@ -11,7 +11,7 @@ namespace MoviesApp.Infrastructure.MobileData.Tests
         protected override void OnCreate(Bundle bundle)
         {
             // tests can be inside the main assembly
-            AddTest(Assembly.GetExecutingAssembly());
+            AddTest (Assembly.GetExecutingAssembly());
             // or in any reference assemblies
             // AddTest (typeof (Your.Library.TestClass).Assembly);
 

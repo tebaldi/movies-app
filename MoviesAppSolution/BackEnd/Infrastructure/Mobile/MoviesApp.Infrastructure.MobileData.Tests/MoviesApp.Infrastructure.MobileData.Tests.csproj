@@ -69,9 +69,7 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ServiceFactoryTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MoviesApp.Infrastructure.MobileData\MoviesApp.Infrastructure.MobileData.csproj">
       <Project>{661a57a4-18a3-484b-810b-3cb75558b779}</Project>

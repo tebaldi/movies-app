@@ -26,6 +26,8 @@ namespace MoviesApp.Infrastructure.MobileData.Tests
 		
 		public static void UpdateIdValues()
 		{
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.ApplicationName = global::MoviesApp.Infrastructure.MobileData.Tests.Resource.String.ApplicationName;
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.Hello = global::MoviesApp.Infrastructure.MobileData.Tests.Resource.String.Hello;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionHostName = global::MoviesApp.Infrastructure.MobileData.Tests.Resource.Id.OptionHostName;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionPort = global::MoviesApp.Infrastructure.MobileData.Tests.Resource.Id.OptionPort;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionRemoteServer = global::MoviesApp.Infrastructure.MobileData.Tests.Resource.Id.OptionRemoteServer;

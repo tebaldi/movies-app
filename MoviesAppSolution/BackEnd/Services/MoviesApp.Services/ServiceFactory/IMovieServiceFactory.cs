@@ -1,5 +1,4 @@
 ﻿using MoviesApp.Domain.Model;
-using MoviesApp.Services.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Services.ServiceFactory
 {
-    public interface IMovieServiceFactory
+    public interface IMovieServiceFactory : IServiceFactory
     {
         IService<IMovieSearch, PagedResult<IMovie>> CreateGetMoviesService();
 

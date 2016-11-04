@@ -42,6 +42,7 @@
     <Compile Include="Model\IMovieDetails.cs" />
     <Compile Include="Model\IMovieSearch.cs" />
     <Compile Include="Model\IMovieKey.cs" />
+    <Compile Include="Model\PagedResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -8,7 +8,7 @@ If not, please access the NuggetPackeged Manager for the solution and restore fr
 	- Visual Studio Community 2015 Update 3
 	- .Net Framework 4.5.2
 	- Xamarin 4.2.0.695
-	- Android SDK min 16/target 23	
+	- Android SDK min 4.1/target 6.0
 	
 THIRD-PARTY LIBRARIES
 * Moq v4.5.22 - Moq is the most popular and friendly mocking framework for .NET

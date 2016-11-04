@@ -18,7 +18,7 @@ namespace MoviesApp.Infrastructure.TMDb
             {
                 var genre_ids = token["genre_ids"] as JArray;
 
-                genresArray = TMDbGenre.LoadGenres()
+                genresArray = TMDbCache.Genres
                     .Where(g => genre_ids.Any(id => int.Parse(id.ToString()) == g.ID))
                     .Select(g => g.Name)
                     .ToArray();

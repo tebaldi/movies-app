@@ -65,9 +65,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TMDBTests\TMDbMovieServicesTest.cs" />
-    <Compile Include="TMDBTests\TMDbMovieServiceFactoryTest.cs" />
-    <Compile Include="TMDBTests\TMDbApiTest.cs" />
+    <Compile Include="TMDbTests\TMDbMovieServicesTest.cs" />
+    <Compile Include="TMDbTests\TMDbMovieServiceFactoryTest.cs" />
+    <Compile Include="TMDbTests\TMDbApiTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\MoviesApp.Domain\MoviesApp.Domain.csproj">

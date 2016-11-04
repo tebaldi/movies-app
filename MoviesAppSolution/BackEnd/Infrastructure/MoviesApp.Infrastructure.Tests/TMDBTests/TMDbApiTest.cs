@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesApp.Infrastructure.TMDb;
 using Newtonsoft.Json.Linq;
 
-namespace MoviesApp.Infrastructure.Tests.TMDBTests
+namespace MoviesApp.Infrastructure.Tests.TMDbTests
 {
     [TestClass]
     public class TMDbApiMapTest

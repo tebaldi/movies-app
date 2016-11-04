@@ -7,7 +7,7 @@ using MoviesApp.Domain.Model;
 using Moq;
 using System.Linq;
 
-namespace MoviesApp.Infrastructure.Tests.TMDBTests
+namespace MoviesApp.Infrastructure.Tests.TMDbTests
 {
     [TestClass]
     public class TMDbMovieServicesTest

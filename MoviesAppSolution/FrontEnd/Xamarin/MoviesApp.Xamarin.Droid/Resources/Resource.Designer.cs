@@ -45,7 +45,10 @@ namespace MoviesApp.Xamarin.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Arctouch = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -60,20 +63,14 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070002
-			public const int MyButton = 2131165186;
-			
 			// aapt resource value: 0x7f070001
-			public const int frameContent = 2131165185;
-			
-			// aapt resource value: 0x7f070004
-			public const int menuFavorites = 2131165188;
-			
-			// aapt resource value: 0x7f070003
-			public const int menuSearch = 2131165187;
+			public const int MyButton = 2131165185;
 			
 			// aapt resource value: 0x7f070000
-			public const int toolbar = 2131165184;
+			public const int frameContent = 2131165184;
+			
+			// aapt resource value: 0x7f070002
+			public const int menuSearch = 2131165186;
 			
 			static Id()
 			{
@@ -92,10 +89,10 @@ namespace MoviesApp.Xamarin.Droid
 			public const int main_activity = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int toolbar = 2130903041;
+			public const int movie_details_fragment = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int upcoming_fragment = 2130903042;
+			public const int movies_fragment = 2130903042;
 			
 			static Layout()
 			{
@@ -111,7 +108,7 @@ namespace MoviesApp.Xamarin.Droid
 		{
 			
 			// aapt resource value: 0x7f060000
-			public const int main_menu = 2131099648;
+			public const int movies_fragment_menu = 2131099648;
 			
 			static Menu()
 			{

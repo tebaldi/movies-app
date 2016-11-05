@@ -12,7 +12,15 @@ using Android.Widget;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
-    class UpcomingMoviesFragment : Fragment
+    public class FragmentBase : Fragment
     {
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            SetHasOptionsMenu(true);
+
+            Activity.InvalidateOptionsMenu();
+        }
     }
 }

@@ -12,15 +12,27 @@ using Android.Widget;
 using MoviesApp.Services.Dto;
 using Android.Util;
 using Square.Picasso;
+using MoviesApp.Services.ServiceFactory;
+using MoviesApp.Infrastructure.MobileData.Tasks;
+using MoviesApp.Services;
 
 namespace MoviesApp.Xamarin.Droid.Adapters
 {
     class MoviesAdapter : BaseAdapter<Movie>
     {
+        private readonly Activity context;
+        private readonly IMovieServiceFactory movieServiceFactory;
         private readonly List<Movie> movies = new List<Movie>();
         private MovieSearch lastSearch;
         private PagedResult<Movie> lastResult;
         private bool isLoading;
+
+        public MoviesAdapter(Activity context,
+            IMovieServiceFactory movieServiceFactory)
+        {
+            this.context = context;
+            this.movieServiceFactory = movieServiceFactory;
+        }
 
         public void LoadMovies(string search)
         {
@@ -43,19 +55,7 @@ namespace MoviesApp.Xamarin.Droid.Adapters
             if (lastResult?.PageIndex > lastResult?.TotalPages)
                 return;
 
-            movies.Add(new Movie { MovieID = 1, MovieName = "Movie 1", Genre = "Drama", ImagePath = "https://a2ua.com/poster/poster-006.jpg" });
-            movies.Add(new Movie { MovieID = 2, MovieName = "Movie 2", Genre = "Action" });
-            movies.Add(new Movie { MovieID = 3, MovieName = "Movie 3", Genre = "New", ReleaseDate = DateTime.Today });
-
-            lastResult = new PagedResult<Movie>()
-            {
-                PageIndex = lastSearch.Page,
-                TotalPages = 3,
-                TotalResults = 3 * 3
-            };
-
-            NotifyDataSetChanged();
-            isLoading = false;
+            LoadMoviesInBackground();
         }
 
         public override Movie this[int position]
@@ -148,6 +148,48 @@ namespace MoviesApp.Xamarin.Droid.Adapters
 
             if(!hasImage)
                 imageView.SetImageResource(Resource.Drawable.Icon);
+        }
+
+        private void LoadMoviesInBackground()
+        {
+            var task = AsyncTaskExecutor<MovieSearch, PagedResult<Movie>>.Builder
+                .SetOnPreExecuteAction(() =>
+                {
+                    if (context == null || context.Handle == IntPtr.Zero)
+                        return;
+
+                    isLoading = true;
+                    context.SetProgressBarIndeterminateVisibility(isLoading);
+                })
+                .SetOnBackgroundAction(args =>
+                {
+                    var service = movieServiceFactory.CreateGetMoviesService();
+                    var response = service.ExecuteService(new ServiceRequest<MovieSearch>
+                    {
+                        RequestKey = Guid.NewGuid(),
+                        Data = args.First()
+                    });
+                    return response.Data;
+                })
+                .SetOnPostExecuteAction(result =>
+                {
+                    if (context == null || context.Handle == IntPtr.Zero)
+                        return;
+
+                    isLoading = false;
+                    context.SetProgressBarIndeterminateVisibility(isLoading);
+
+                    if (result == null)
+                        return;
+
+                    movies.AddRange(result.Results);
+
+                    lastResult = result;
+                    NotifyDataSetChanged();
+                })
+                .Build();
+
+            task.Execute(new[] { lastSearch });
         }
     }
 }

@@ -124,6 +124,10 @@
       <Project>{661a57a4-18a3-484b-810b-3cb75558b779}</Project>
       <Name>MoviesApp.Infrastructure.MobileData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\BackEnd\Infrastructure\MoviesApp.Infrastructure.TMDb\MoviesApp.Infrastructure.TMDb.csproj">
+      <Project>{ef2c5a1d-7e69-471e-823a-04bd7efe37c1}</Project>
+      <Name>MoviesApp.Infrastructure.TMDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\BackEnd\Services\MoviesApp.Services\MoviesApp.Services.csproj">
       <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
       <Name>MoviesApp.Services</Name>

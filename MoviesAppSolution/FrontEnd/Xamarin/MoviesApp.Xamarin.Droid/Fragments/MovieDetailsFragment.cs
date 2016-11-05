@@ -13,12 +13,18 @@ using MoviesApp.Xamarin.Droid.Utils;
 using Android.Util;
 using Square.Picasso;
 using MoviesApp.Services.Dto;
+using MoviesApp.Infrastructure.MobileData.Tasks;
+using MoviesApp.Services.ServiceFactory;
+using MoviesApp.Infrastructure.MobileData;
+using MoviesApp.Services;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
     public class MovieDetailsFragment : BaseFragment
     {
         public const string MovieId = "MovieId";
+
+        private IMovieServiceFactory movieServiceFactory;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -29,22 +35,12 @@ namespace MoviesApp.Xamarin.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
+            movieServiceFactory = App.ResolveFactory<IMovieServiceFactory>();
+
             var movieId = Arguments != null && Arguments.ContainsKey(MovieId)
                 ? Arguments.GetInt(MovieId) : 0;
 
-            var movieDetails = new MovieDetails()
-            {
-                MovieID = movieId,
-                MovieName = "Movie name",
-                Genre = "genre",
-                OverView = "overview",
-                ImagePath = "https://a2ua.com/poster/poster-006.jpg",
-                ReleaseDate = DateTime.Today
-            };
-
-            LoadHeader(view.FindViewById<TextView>(Resource.Id.header), movieDetails);
-            LoadContent(view.FindViewById<TextView>(Resource.Id.content), movieDetails);
-            LoadImage(view.FindViewById<ImageView>(Resource.Id.img), movieDetails);
+            LoadDetailsInBackground(movieId);
         }
 
         private void LoadHeader(TextView header, MovieDetails movieDetails)
@@ -95,6 +91,45 @@ namespace MoviesApp.Xamarin.Droid.Fragments
 
             if (!hasImage)
                 imageView.SetImageResource(Resource.Drawable.Icon);
+        }
+
+        private void LoadDetailsInBackground(int movieId)
+        {
+            var task = AsyncTaskExecutor<MovieKey, MovieDetails>.Builder
+                .SetOnPreExecuteAction(() =>
+                {
+                    if (Activity == null || Activity.Handle == IntPtr.Zero)
+                        return;
+
+                    Activity.SetProgressBarIndeterminateVisibility(true);
+                })
+                .SetOnBackgroundAction(args =>
+                {
+                    var service = movieServiceFactory.CreateGetMovieDetailsService();
+                    var response = service.ExecuteService(new ServiceRequest<MovieKey>
+                    {
+                        RequestKey = Guid.NewGuid(),
+                        Data = args.First()
+                    });
+                    return response.Data;
+                })
+                .SetOnPostExecuteAction(result =>
+                {
+                    if (Activity == null || Activity.Handle == IntPtr.Zero)
+                        return;
+
+                    Activity.SetProgressBarIndeterminateVisibility(false);
+
+                    if (result == null)
+                        return;
+
+                    LoadHeader(View.FindViewById<TextView>(Resource.Id.header), result);
+                    LoadContent(View.FindViewById<TextView>(Resource.Id.content), result);
+                    LoadImage(View.FindViewById<ImageView>(Resource.Id.img), result);
+                })
+                .Build();
+
+            task.Execute(new[] { new MovieKey { MovieID = movieId } });
         }
     }
 }

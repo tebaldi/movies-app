@@ -11,6 +11,8 @@ using Android.Widget;
 using System.Threading;
 using MoviesApp.Xamarin.Droid.Utils;
 using MoviesApp.Xamarin.Droid.Adapters;
+using MoviesApp.Infrastructure.MobileData;
+using MoviesApp.Services.ServiceFactory;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
@@ -36,7 +38,8 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             list.ItemClick += List_ItemClick;
             list.SetOnScrollListener(this);
 
-            list.Adapter = new MoviesAdapter();
+            list.Adapter = new MoviesAdapter(
+                Activity, App.ResolveFactory<IMovieServiceFactory>());
         }
 
         public override void OnResume()

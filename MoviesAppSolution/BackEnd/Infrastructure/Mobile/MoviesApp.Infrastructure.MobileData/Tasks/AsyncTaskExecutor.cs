@@ -9,17 +9,19 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MoviesApp.Infrastructure.MobileData.Network;
+using Android.Util;
 
 namespace MoviesApp.Infrastructure.MobileData.Tasks
 {
     public class AsyncTaskExecutor :
-        AsyncTaskExecutor<object>
+        AsyncTaskExecutor<object, object>
     {
         protected AsyncTaskExecutor(TaskBuilder builder) : base(builder) { }
     }
 
-    public class AsyncTaskExecutor<TParams> :
-        AsyncTaskExecutor<TParams, object>
+    public class AsyncTaskExecutor<TResult> :
+        AsyncTaskExecutor<object, TResult>
     {
         protected AsyncTaskExecutor(TaskBuilder builder) : base(builder) { }
     }
@@ -45,8 +47,16 @@ namespace MoviesApp.Infrastructure.MobileData.Tasks
         {
             if (IsCancelled)
                 return default(TResult);
+            try
+            {
+                return builder.onBackgroundAction.Invoke(@params);
+            }
+            catch(Exception e)
+            {
+                Log.Error("RunInBackground", e.ToString());
 
-            return builder.onBackgroundAction.Invoke(@params);
+                return default(TResult);
+            }
         }
 
         protected override void OnCancelled()
@@ -58,6 +68,13 @@ namespace MoviesApp.Infrastructure.MobileData.Tasks
 
         protected override void OnPostExecute(TResult result)
         {
+            if (!NetworkConnector.HasConnection())
+            {
+                Toast.MakeText(Application.Context,
+                    "Please verify your network connection...", ToastLength.Long)
+                    .Show();
+            }
+
             builder.onPostExecuteAction?.Invoke(result);
         }
 

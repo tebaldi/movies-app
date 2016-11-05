@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace MoviesApp.Xamarin.Droid
 {
-    [Activity(Label = "MoviesApp.Xamarin.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "ArcTouch Movies", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         int count = 1;

@@ -73,6 +73,20 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BackEnd\Infrastructure\Mobile\MoviesApp.Infrastructure.MobileData\MoviesApp.Infrastructure.MobileData.csproj">
+      <Project>{661a57a4-18a3-484b-810b-3cb75558b779}</Project>
+      <Name>MoviesApp.Infrastructure.MobileData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\BackEnd\Services\MoviesApp.Services\MoviesApp.Services.csproj">
+      <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
+      <Name>MoviesApp.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fragment\" />
+    <Folder Include="Util\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

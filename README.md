@@ -1,6 +1,11 @@
 # movies-app
 App for cinephiles and movie hobbyists
 
+VISUAL STUDIO SOLUTIONS
+* I´ve created two Solution projects just for show the concepts of the server side structure also
+	* MOBILE SOLUTION - Here stands the code that is related for the Mobile Solution to function without the Server specifics
+	* SERVER SOLUTION - Here stands the code that is related for the Server Solution to function without the Mobile specifics
+	
 BUILD INSTRUCTIONS
 * Make sure that all Nugget packages are restored when building. They are commonly restored in response to a build command.
 If not, please access the NuggetPackeged Manager for the solution and restore from there.
@@ -15,6 +20,8 @@ THIRD PARTY LIBRARIES
 * Newtonsoft.Json 9.0.1 - Json.NET is a popular high-performance JSON framework for .NET
 * Autofac 4.2.0 - Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes.
 
+* Xamarin.Android.Support.v7.RecyclerView 24.2.1 - v7 RecyclerView Android Support Library C# bindings for Xamarin
+
 ARCHTECTURE SOLUTIONS CONSIDERATIONS
 * BACKEND - Here stands the code that is not related to the UI and UX
 	* DOMAIN - Here stands the code that is related to the project business
@@ -25,8 +32,3 @@ ARCHTECTURE SOLUTIONS CONSIDERATIONS
 	
 * FRONTEND - Here stands the code that is related to the UI and UX
 	* XAMARIN - Here stands the code that use Xamarin technology for display the front-end for the users
-
-VISUAL STUDIO SOLUTIONS
-* I´ve created two Solution projects just for show the concepts of the server side structure also
-	* MOBILE SOLUTION - Here stands the code that is related for the Mobile Solution to function without the Server specifics
-	* SERVER SOLUTION - Here stands the code that is related for the Server Solution to function without the Mobile specifics

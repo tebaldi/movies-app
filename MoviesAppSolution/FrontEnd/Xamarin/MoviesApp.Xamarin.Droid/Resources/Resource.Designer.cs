@@ -26,6 +26,8 @@ namespace MoviesApp.Xamarin.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.ApplicationName = global::MoviesApp.Xamarin.Droid.Resource.String.ApplicationName;
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.Hello = global::MoviesApp.Xamarin.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

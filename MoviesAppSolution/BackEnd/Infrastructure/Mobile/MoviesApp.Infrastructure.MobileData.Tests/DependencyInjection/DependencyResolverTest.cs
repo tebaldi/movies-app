@@ -17,7 +17,7 @@ using Autofac;
 
 namespace MoviesApp.Infrastructure.MobileData.Tests.DependencyInjection
 {
-    [TestFixture]
+    [TestFixture(Category = "Dependecy Injection", Description = nameof(DependencyResolverTest))]
     class DependencyResolverTest
     {
         class TestServiceFactory : IServiceFactory
@@ -25,25 +25,25 @@ namespace MoviesApp.Infrastructure.MobileData.Tests.DependencyInjection
 
         }
 
-        [Test]
+        [Test(Description = nameof(ShouldBuildContainer))]
         public void ShouldBuildContainer()
         {
-            var implTypesAssembliesNamespace = new Dictionary<Assembly, string[]>
+            var container = DependencyResolver.BuildContainer(new[]
                 {
-                    {
-                        Assembly.GetExecutingAssembly(), new[] 
-                        {
-                            "MoviesApp.Infrastructure.MobileData.Tests.DependencyInjection"
-                        }
-                    }
-                };
-
-            var container = DependencyResolver.BuildContainer(implTypesAssembliesNamespace);
+                    Assembly.GetExecutingAssembly()
+                });
             Assert.IsNotNull(container);
 
             var serviceFactoryImpl = container.Resolve<IServiceFactory>();
             Assert.IsNotNull(serviceFactoryImpl);
             Assert.IsInstanceOfType(typeof(TestServiceFactory), serviceFactoryImpl);
+        }
+
+        [Test(Description = nameof(ShouldConfigureContainerForMobileApp))]
+        public void ShouldConfigureContainerForMobileApp()
+        {
+            var movieServiceFactory = DependencyResolver.Resolve<IMovieServiceFactory>();
+            Assert.IsNotNull(movieServiceFactory);
         }
     }
 }

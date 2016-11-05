@@ -66,9 +66,17 @@
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\MoviesApp.Domain\MoviesApp.Domain.csproj">
+      <Project>{60c6139e-ff9e-4832-abce-7233dd5ab044}</Project>
+      <Name>MoviesApp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Services\MoviesApp.Services\MoviesApp.Services.csproj">
       <Project>{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}</Project>
       <Name>MoviesApp.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MoviesApp.Infrastructure\MoviesApp.Infrastructure.TMDb.csproj">
+      <Project>{ef2c5a1d-7e69-471e-823a-04bd7efe37c1}</Project>
+      <Name>MoviesApp.Infrastructure.TMDb</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

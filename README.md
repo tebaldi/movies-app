@@ -10,7 +10,7 @@ If not, please access the NuggetPackeged Manager for the solution and restore fr
 	- Xamarin 4.2.0.695
 	- Android SDK min 4.1/target 6.0
 	
-THIRD-PARTY LIBRARIES
+THIRD PARTY LIBRARIES
 * Moq v4.5.22 - Moq is the most popular and friendly mocking framework for .NET
 * Newtonsoft.Json 9.0.1 - Json.NET is a popular high-performance JSON framework for .NET
 * Autofac 4.2.0 - Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes.
@@ -18,10 +18,10 @@ THIRD-PARTY LIBRARIES
 ARCHTECTURE CONSIDERATIONS
 * BACKEND - Here stands all the code that is not related to the UI and UX
 	* DOMAIN - Here stands all the code that is related to the project business
-	* INFRASTRUCTURE - Here stands all the code that is related to technology specifics that aids the system fo function
+	* INFRASTRUCTURE - Here stands all the code that is related to technology specifics that supports the system
 		* SERVER - Here stands all the code that is technology specific for the server side of the application
-		* MOBILE - Here stands all the code thath is technology specific for the mobile side of the application
-	* SERVICES - Here stands all the code that abstract the access of the system´s internal structure and provides and end point for the clients
+		* MOBILE - Here stands all the code that is technology specific for the mobile side of the application
+	* SERVICES - Here stands all the code that abstract the access of the system internal structure and provides a end point for the clients
 	
 * FRONTEND - Here stands all the code that is related to the UI and UX
 	* XAMARIN - Here stands all the code that use Xamarin technology for display the front-end for the users

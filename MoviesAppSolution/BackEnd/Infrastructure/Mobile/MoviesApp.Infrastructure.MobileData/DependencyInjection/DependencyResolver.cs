@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Autofac;
 using System.Reflection;
+using MoviesApp.Services.ServiceFactory;
 
 namespace MoviesApp.Infrastructure.MobileData.DependencyInjection
 {
@@ -18,37 +19,29 @@ namespace MoviesApp.Infrastructure.MobileData.DependencyInjection
     {
         private static IContainer container;
 
-        public static T Resolve<T>()
+        public static T Resolve<T>() where T : IServiceFactory
         {
             if (container == null)
             {
-                var implTypesAssembliesNamespace = new Dictionary<Assembly, string[]>
+                container = BuildContainer(new[]
                 {
-                    { Assembly.Load("DietPlan.DomainModel"), new[] { "DietPlan.DomainModel.CommandHandlers" } },
-                    { Assembly.Load("DietPlan.QueryModel"), new[] { "DietPlan.QueryModel.EventHandlers", "DietPlan.QueryModel.QueryServices.Implementation" } },
-                    { Assembly.Load("FoodAdmin.Infrastructure"), new[] { "FoodAdmin.Infrastructure.Implementations" } },
-                    { Assembly.GetExecutingAssembly(), new[] { "DietPlanning.API.DietPlan.Models.Implementation" } }
-                };
-
-                container = BuildContainer(implTypesAssembliesNamespace);
+                    Assembly.Load("MoviesApp.Infrastructure.TMDb")
+                });
             }
 
             return container.Resolve<T>();
         }
 
-        public static IContainer BuildContainer(
-            Dictionary<Assembly, string[]> implTypesAssembliesNamespace)
+        public static IContainer BuildContainer(Assembly[] serviceFactoryAssemblies)
         {
             var builder = new ContainerBuilder();
 
-            foreach (var implTypesAssembly in implTypesAssembliesNamespace.Keys)
+            foreach (var assembly in serviceFactoryAssemblies)
             {
-                var implTypesNamespace = implTypesAssembliesNamespace[implTypesAssembly];
-                var implTypes = implTypesAssembly.GetTypes()
-                    .Where(t => t != null && t.Namespace != null &&
-                        implTypesNamespace.Any(it => t.Namespace.Contains(it)));
+                var concreteTypes = assembly.GetTypes()
+                    .Where(t => t != null && t.Name.EndsWith("ServiceFactory"));
 
-                foreach (var type in implTypes)
+                foreach (var type in concreteTypes)
                 {
                     foreach (var interfaceType in type.GetInterfaces())
                     {

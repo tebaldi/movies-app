@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesApp.Domain.Model
+namespace MoviesApp.Services.Dto
 {
-    public class PagedResult<T>
+    public class PagedResult<T> : IDataTransferObject
     {
         public T[] Results { get; set; }
 

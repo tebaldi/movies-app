@@ -52,10 +52,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\MoviesApp.Domain\MoviesApp.Domain.csproj">
-      <Project>{60c6139e-ff9e-4832-abce-7233dd5ab044}</Project>
-      <Name>MoviesApp.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\MoviesApp.Services\MoviesApp.Services.csproj">
       <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
       <Name>MoviesApp.Services</Name>

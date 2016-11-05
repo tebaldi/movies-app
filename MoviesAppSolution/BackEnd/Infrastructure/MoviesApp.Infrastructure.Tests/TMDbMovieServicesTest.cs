@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesApp.Infrastructure.TMDb;
 using MoviesApp.Services;
-using MoviesApp.Domain.Model;
+using MoviesApp.Services.Dto;
 using Moq;
 using System.Linq;
 

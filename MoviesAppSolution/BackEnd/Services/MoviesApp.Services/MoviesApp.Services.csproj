@@ -34,13 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\Domain\MoviesApp.Domain\MoviesApp.Domain.csproj">
-      <Project>{60c6139e-ff9e-4832-abce-7233dd5ab044}</Project>
-      <Name>MoviesApp.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Dto\IDataTransferObject.cs" />
+    <Compile Include="Dto\IMovie.cs" />
+    <Compile Include="Dto\IMovieDetails.cs" />
+    <Compile Include="Dto\IMovieKey.cs" />
+    <Compile Include="Dto\IMovieSearch.cs" />
+    <Compile Include="Dto\PagedResult.cs" />
     <Compile Include="IServiceRequest.cs" />
     <Compile Include="IServiceResponse.cs" />
     <Compile Include="IService.cs" />

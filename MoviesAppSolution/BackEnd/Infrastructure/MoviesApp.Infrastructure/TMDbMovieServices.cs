@@ -1,4 +1,4 @@
-﻿using MoviesApp.Domain.Model;
+﻿using MoviesApp.Services.Dto;
 using MoviesApp.Services;
 using Newtonsoft.Json.Linq;
 using System;

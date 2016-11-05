@@ -15,13 +15,18 @@ THIRD PARTY LIBRARIES
 * Newtonsoft.Json 9.0.1 - Json.NET is a popular high-performance JSON framework for .NET
 * Autofac 4.2.0 - Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes.
 
-ARCHTECTURE CONSIDERATIONS
-* BACKEND - Here stands all the code that is not related to the UI and UX
-	* DOMAIN - Here stands all the code that is related to the project business
-	* INFRASTRUCTURE - Here stands all the code that is related to technology specifics that supports the system
-		* SERVER - Here stands all the code that is technology specific for the server side of the application
-		* MOBILE - Here stands all the code that is technology specific for the mobile side of the application
-	* SERVICES - Here stands all the code that abstract the access of the system internal structure and provides a end point for the clients
+ARCHTECTURE SOLUTIONS CONSIDERATIONS
+* BACKEND - Here stands the code that is not related to the UI and UX
+	* DOMAIN - Here stands the code that is related to the project business
+	* INFRASTRUCTURE - Here stands the code that is related to technology specifics that supports the system
+		* SERVER - Here stands the code that is technology specific for the server side of the application
+		* MOBILE - Here stands the code that is technology specific for the mobile side of the application
+	* SERVICES - Here stands  the code that abstract the access of the system internal structure and provides a end point for the clients
 	
-* FRONTEND - Here stands all the code that is related to the UI and UX
-	* XAMARIN - Here stands all the code that use Xamarin technology for display the front-end for the users
+* FRONTEND - Here stands the code that is related to the UI and UX
+	* XAMARIN - Here stands the code that use Xamarin technology for display the front-end for the users
+
+VISUAL STUDIO SOLUTIONS
+* I´ve created two Solution projects just for show the concepts of the server side structure also
+	* MOBILE SOLUTION - Here stands the code that is related for the Mobile Solution to function without the Server specifics
+	* SERVER SOLUTION - Here stands the code that is related for the Server Solution to function without the Mobile specifics

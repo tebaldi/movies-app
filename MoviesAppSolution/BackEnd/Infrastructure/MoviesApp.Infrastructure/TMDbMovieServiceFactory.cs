@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MoviesApp.Services;
-using MoviesApp.Domain.Model;
+using MoviesApp.Services.Dto;
 
 namespace MoviesApp.Infrastructure.TMDb
 {

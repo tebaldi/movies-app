@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesApp.Domain.Model
+namespace MoviesApp.Services.Dto
 {
-    public interface IMovieSearch
+    public interface IMovieSearch : IDataTransferObject
     {
         string MovieName { get; }
 

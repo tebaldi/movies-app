@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoviesApp.Services.ServiceFactory;
 using Moq;
-using MoviesApp.Domain.Model;
+using MoviesApp.Services.Dto;
 
 namespace MoviesApp.Services.Tests.TestServiceFactory
 {

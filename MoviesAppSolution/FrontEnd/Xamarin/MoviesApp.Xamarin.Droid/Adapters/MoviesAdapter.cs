@@ -10,20 +10,52 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MoviesApp.Services.Dto;
-using Com.Squareup.Picasso;
 using Android.Util;
+using Square.Picasso;
 
 namespace MoviesApp.Xamarin.Droid.Adapters
 {
     class MoviesAdapter : BaseAdapter<Movie>
     {
         private readonly List<Movie> movies = new List<Movie>();
+        private MovieSearch lastSearch;
+        private PagedResult<Movie> lastResult;
+        private bool isLoading;
 
-        public MoviesAdapter()
+        public void LoadMovies(string search)
         {
+            if (isLoading)
+                return;
+
+            if (lastSearch?.MovieName != search)
+            {
+                movies.Clear();
+                lastResult = default(PagedResult<Movie>);
+                lastSearch = default(MovieSearch);
+            }
+
+            lastSearch = new MovieSearch
+            {
+                MovieName = search,
+                Page = (lastSearch?.Page ?? 0) + 1
+            };
+
+            if (lastResult?.PageIndex > lastResult?.TotalPages)
+                return;
+
             movies.Add(new Movie { MovieID = 1, MovieName = "Movie 1", Genre = "Drama", ImagePath = "https://a2ua.com/poster/poster-006.jpg" });
             movies.Add(new Movie { MovieID = 2, MovieName = "Movie 2", Genre = "Action" });
             movies.Add(new Movie { MovieID = 3, MovieName = "Movie 3", Genre = "New", ReleaseDate = DateTime.Today });
+
+            lastResult = new PagedResult<Movie>()
+            {
+                PageIndex = lastSearch.Page,
+                TotalPages = 3,
+                TotalResults = 3 * 3
+            };
+
+            NotifyDataSetChanged();
+            isLoading = false;
         }
 
         public override Movie this[int position]
@@ -61,14 +93,9 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                         .Inflate(Resource.Layout.movie_item, null);
                 }
 
-                LoadHeader(
-                    convertView.FindViewById<TextView>(Resource.Id.header), movie);
-
-                LoadContent(
-                    convertView.FindViewById<TextView>(Resource.Id.content), movie);
-
-                LoadImage(
-                    convertView.FindViewById<ImageView>(Resource.Id.img), movie);
+                LoadHeader(convertView.FindViewById<TextView>(Resource.Id.header), movie);
+                LoadContent(convertView.FindViewById<TextView>(Resource.Id.content), movie);
+                LoadImage(convertView.FindViewById<ImageView>(Resource.Id.img), movie);
             }
 
             return convertView;
@@ -76,16 +103,24 @@ namespace MoviesApp.Xamarin.Droid.Adapters
 
         private void LoadHeader(TextView header, Movie movie)
         {
-            header.Text = movie.MovieName;
+            var textBuilder = new StringBuilder();
+
+            textBuilder.Append(movie.MovieName);
+
+            header.TextFormatted = Android.Text.Html.FromHtml(textBuilder.ToString());
         }
 
         private void LoadContent(TextView content, Movie movie)
         {
-            if (String.IsNullOrEmpty(movie.Genre))
-                content.Text = $"Genre: {movie.Genre}/n";
+            var textBuilder = new StringBuilder();
+
+            if (!String.IsNullOrEmpty(movie.Genre))
+                textBuilder.Append($"Genre: {movie.Genre}<br/>");
 
             if (!DateTime.MinValue.Equals(movie.ReleaseDate))
-                content.Text = $"Release: {movie.ReleaseDate}";
+                textBuilder.Append($"Release: {movie.ReleaseDate}");
+
+            content.TextFormatted = Android.Text.Html.FromHtml(textBuilder.ToString());
         }
 
         private void LoadImage(ImageView imageView, Movie movie)
@@ -98,6 +133,10 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                 {
                     Picasso.With(imageView.Context)
                         .Load(movie.ImagePath)
+                        .Placeholder(Resource.Drawable.Icon)
+                        .Error(Resource.Drawable.Icon)
+                        .Resize(200, 200)
+                        .CenterCrop()
                         .Into(imageView);
                 }
                 catch (Exception e)

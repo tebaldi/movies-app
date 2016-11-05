@@ -14,12 +14,13 @@ using MoviesApp.Xamarin.Droid.Adapters;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
-    public class MoviesFragment : BaseFragment
+    public class MoviesFragment : BaseFragment, AbsListView.IOnScrollListener
     {
         public const string MovieWasSelectedAction = "MovieWasSelectedAction";
         public const string MovieWasSelectedAction_MovieId = "MovieId";
 
         private CancellationTokenSource queryTokenSource;
+        private string search;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -33,8 +34,16 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             var list = View.FindViewById<ListView>(Android.Resource.Id.List);
             list.ItemClick -= List_ItemClick;
             list.ItemClick += List_ItemClick;
+            list.SetOnScrollListener(this);
 
             list.Adapter = new MoviesAdapter();
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            LoadMovies();
         }
 
         private void List_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -74,10 +83,35 @@ namespace MoviesApp.Xamarin.Droid.Fragments
 
                 Activity.RunOnUiThread(delegate
                 {
-                    Toast.MakeText(Activity, e.NewText, ToastLength.Short).Show();
+                    search = e.NewText;
+
+                    LoadMovies();
                 });
 
             }, queryTokenSource.Token, 1500, 0);
+        }
+
+        private void LoadMovies()
+        {
+            var list = View.FindViewById<ListView>(Android.Resource.Id.List);
+            var adapter = list?.Adapter as MoviesAdapter;
+
+            adapter?.LoadMovies(search);
+        }
+
+        public void OnScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+        {
+            if (totalItemCount == 0)
+                return;
+
+            if (firstVisibleItem + visibleItemCount >= totalItemCount)
+            {
+                LoadMovies();
+            }
+        }
+
+        public void OnScrollStateChanged(AbsListView view, [GeneratedEnum] ScrollState scrollState)
+        {
         }
     }
 }

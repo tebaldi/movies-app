@@ -22,7 +22,7 @@ THIRD PARTY LIBRARIES
 * Moq v4.5.22 - Moq is the most popular and friendly mocking framework for .NET
 * Newtonsoft.Json 9.0.1 - Json.NET is a popular high-performance JSON framework for .NET
 * Autofac 4.2.0 - Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes.
-* Picasso.Net 2.4.0.1 - Java bindings for Picasso.
+* Square.Picasso 2.5.2 - A powerful image downloading and caching library for Android
 
 ARCHTECTURE SOLUTIONS CONSIDERATIONS
 * BACKEND - Here stands the code that is not related to the UI and UX

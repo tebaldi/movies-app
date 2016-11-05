@@ -26,6 +26,8 @@ namespace MoviesApp.Xamarin.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.ApplicationName = global::MoviesApp.Xamarin.Droid.Resource.String.ApplicationName;
+			global::MoviesApp.Infrastructure.MobileData.Resource.String.Hello = global::MoviesApp.Xamarin.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -63,14 +65,20 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070001
-			public const int MyButton = 2131165185;
+			// aapt resource value: 0x7f070003
+			public const int content = 2131165187;
 			
 			// aapt resource value: 0x7f070000
 			public const int frameContent = 2131165184;
 			
 			// aapt resource value: 0x7f070002
-			public const int menuSearch = 2131165186;
+			public const int header = 2131165186;
+			
+			// aapt resource value: 0x7f070001
+			public const int img = 2131165185;
+			
+			// aapt resource value: 0x7f070004
+			public const int menuSearch = 2131165188;
 			
 			static Id()
 			{
@@ -92,7 +100,10 @@ namespace MoviesApp.Xamarin.Droid
 			public const int movie_details_fragment = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int movies_fragment = 2130903042;
+			public const int movie_item = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int movies_fragment = 2130903043;
 			
 			static Layout()
 			{
@@ -123,8 +134,17 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050001
+			public const int ApplicationName = 2131034113;
+			
 			// aapt resource value: 0x7f050000
 			public const int Hello = 2131034112;
+			
+			// aapt resource value: 0x7f050003
+			public const int MovieDetails = 2131034115;
+			
+			// aapt resource value: 0x7f050002
+			public const int Movies = 2131034114;
 			
 			static String()
 			{

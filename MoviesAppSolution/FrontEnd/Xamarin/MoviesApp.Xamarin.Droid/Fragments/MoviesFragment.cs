@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Threading;
 using MoviesApp.Xamarin.Droid.Utils;
+using MoviesApp.Xamarin.Droid.Adapters;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
-    public class MoviesFragment : FragmentBase
+    public class MoviesFragment : BaseFragment
     {
         public const string MovieWasSelectedAction = "MovieWasSelectedAction";
         public const string MovieWasSelectedAction_MovieId = "MovieId";
@@ -30,10 +30,21 @@ namespace MoviesApp.Xamarin.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            view.FindViewById(Resource.Id.MyButton).Click += delegate
-            {
-                SelectMovie();
-            };
+            var list = View.FindViewById<ListView>(Android.Resource.Id.List);
+            list.ItemClick -= List_ItemClick;
+            list.ItemClick += List_ItemClick;
+
+            list.Adapter = new MoviesAdapter();
+        }
+
+        private void List_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var movieId = e.Id;
+
+            var args = new Bundle();
+            args.PutInt(MovieWasSelectedAction_MovieId, (int)movieId);
+
+            this.NotifyInteraction(MovieWasSelectedAction, args);
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -67,19 +78,6 @@ namespace MoviesApp.Xamarin.Droid.Fragments
                 });
 
             }, queryTokenSource.Token, 1500, 0);
-        }
-
-        private void LoadMovies(string search = "")
-        {
-
-        }
-
-        private void SelectMovie()
-        {
-            var args = new Bundle();
-            args.PutInt(MovieWasSelectedAction_MovieId, 10);
-
-            this.NotifyInteraction(MovieWasSelectedAction, args);
         }
     }
 }

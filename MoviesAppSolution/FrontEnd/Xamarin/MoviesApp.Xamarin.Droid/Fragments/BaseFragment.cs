@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
-    public class FragmentBase : Fragment
+    public class BaseFragment : Fragment
     {
         public override void OnResume()
         {

@@ -13,7 +13,7 @@ using MoviesApp.Xamarin.Droid.Utils;
 
 namespace MoviesApp.Xamarin.Droid.Fragments
 {
-    public class MovieDetailsFragment : FragmentBase
+    public class MovieDetailsFragment : BaseFragment
     {
         public const string MovieId = "MovieId";
 

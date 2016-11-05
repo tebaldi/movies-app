@@ -50,7 +50,10 @@ namespace MoviesApp.Xamarin.Droid
 			public const int Arctouch = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Icon = 2130837505;
+			public const int ic_menu_refresh = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
 			
 			static Drawable()
 			{
@@ -76,6 +79,9 @@ namespace MoviesApp.Xamarin.Droid
 			
 			// aapt resource value: 0x7f070001
 			public const int img = 2131165185;
+			
+			// aapt resource value: 0x7f070005
+			public const int menuRefresh = 2131165189;
 			
 			// aapt resource value: 0x7f070004
 			public const int menuSearch = 2131165188;

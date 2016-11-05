@@ -71,7 +71,7 @@ namespace MoviesApp.Infrastructure.MobileData.Tasks
             if (!NetworkConnector.HasConnection())
             {
                 Toast.MakeText(Application.Context,
-                    "Please verify your network connection...", ToastLength.Long)
+                    "Please verify your network connection...", ToastLength.Short)
                     .Show();
             }
 

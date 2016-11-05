@@ -72,6 +72,14 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             menuSearch.QueryTextChange += MenuSearch_QueryTextChange;
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.menuRefresh)
+                LoadMovies();
+
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void MenuSearch_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
         {
             if (queryTokenSource != null)

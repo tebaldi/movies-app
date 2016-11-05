@@ -183,7 +183,6 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                         return;
 
                     movies.AddRange(result.Results);
-
                     lastResult = result;
                     NotifyDataSetChanged();
                 })

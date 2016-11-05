@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="DependencyInjection\DependencyResolver.cs" />
+    <Compile Include="Network\NetworkConnector.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,5 +11,7 @@ namespace MoviesApp.Services.Dto
         string MovieName { get; }
 
         int Page { get; }
+
+        bool Upcoming { get; }
     }
 }

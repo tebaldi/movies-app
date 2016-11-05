@@ -90,7 +90,7 @@
       <Project>{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}</Project>
       <Name>MoviesApp.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MoviesApp.Infrastructure\MoviesApp.Infrastructure.TMDb.csproj">
+    <ProjectReference Include="..\..\MoviesApp.Infrastructure.TMDb\MoviesApp.Infrastructure.TMDb.csproj">
       <Project>{ef2c5a1d-7e69-471e-823a-04bd7efe37c1}</Project>
       <Name>MoviesApp.Infrastructure.TMDb</Name>
     </ProjectReference>

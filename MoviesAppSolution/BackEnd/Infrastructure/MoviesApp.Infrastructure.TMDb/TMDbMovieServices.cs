@@ -16,7 +16,7 @@ namespace MoviesApp.Infrastructure.TMDb
             IServiceResponse<PagedResult<IMovie>> IService<IMovieSearch, PagedResult<IMovie>>
                 .ExecuteService(IServiceRequest<IMovieSearch> request)
             {
-                var uri = String.IsNullOrEmpty(request.Data.MovieName)
+                var uri = request.Data.Upcoming
                     ? TMDbApi.UpcomingMovies.CreateUri(request.Data.Page)
                     : TMDbApi.SearchMovie.CreateUri(request.Data.MovieName, request.Data.Page);
                                 

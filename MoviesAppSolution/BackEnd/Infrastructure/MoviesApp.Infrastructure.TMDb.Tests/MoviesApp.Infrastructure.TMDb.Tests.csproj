@@ -74,8 +74,8 @@
       <Project>{2e4875d4-1964-49fe-ad28-2bfb3d19b7df}</Project>
       <Name>MoviesApp.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MoviesApp.Infrastructure\MoviesApp.Infrastructure.TMDb.csproj">
-      <Project>{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}</Project>
+    <ProjectReference Include="..\MoviesApp.Infrastructure.TMDb\MoviesApp.Infrastructure.TMDb.csproj">
+      <Project>{ef2c5a1d-7e69-471e-823a-04bd7efe37c1}</Project>
       <Name>MoviesApp.Infrastructure.TMDb</Name>
     </ProjectReference>
   </ItemGroup>

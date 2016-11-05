@@ -9,22 +9,34 @@ using Android.OS;
 namespace MoviesApp.Xamarin.Droid
 {
     [Activity(Label = "ArcTouch Movies", MainLauncher = true, Icon = "@drawable/icon")]
+    [IntentFilter(new[] { Intent.ActionSearch })]
+    [MetaData(("android.app.searchable"), Resource = "@xml/searchable")]
     public class MainActivity : Activity
     {
-        int count = 1;
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+            Window.RequestFeature(WindowFeatures.ActionBar);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            SetContentView(Resource.Layout.main_activity);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.main_menu, menu);
+
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Android.Resource.Id.Home)
+                Finish();
+
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

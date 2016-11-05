@@ -58,6 +58,7 @@
     <Compile Include="Network\NetworkConnector.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\AsyncTaskExecutor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -65,11 +65,13 @@
     <Reference Include="Xamarin.Android.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppTest.cs" />
     <Compile Include="DependencyInjection\DependencyResolverTest.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Network\NetworkConnectorTest.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\AsyncTaskExecutorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

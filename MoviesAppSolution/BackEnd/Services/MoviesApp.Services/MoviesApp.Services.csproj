@@ -34,18 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Dto\IDataTransferObject.cs" />
-    <Compile Include="Dto\IMovie.cs" />
-    <Compile Include="Dto\IMovieDetails.cs" />
-    <Compile Include="Dto\IMovieKey.cs" />
-    <Compile Include="Dto\IMovieSearch.cs" />
+    <Compile Include="IDataTransferObject.cs" />
+    <Compile Include="Dto\Movie.cs" />
+    <Compile Include="Dto\MovieDetails.cs" />
+    <Compile Include="Dto\MovieKey.cs" />
+    <Compile Include="Dto\MovieSearch.cs" />
     <Compile Include="Dto\PagedResult.cs" />
+    <Compile Include="ServiceFactory\IServiceFactory.cs" />
     <Compile Include="IServiceRequest.cs" />
     <Compile Include="IServiceResponse.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceFactory\IMovieServiceFactory.cs" />
-    <Compile Include="ServiceFactory\IServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

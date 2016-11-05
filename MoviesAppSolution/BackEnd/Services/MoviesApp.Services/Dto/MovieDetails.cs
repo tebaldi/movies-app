@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Services.Dto
 {
-    public interface IMovieSearch : IDataTransferObject
+    public class MovieDetails : Movie
     {
-        string MovieName { get; }
-
-        int Page { get; }
-
-        bool Upcoming { get; }
+        public string OverView { get; set; }
     }
 }

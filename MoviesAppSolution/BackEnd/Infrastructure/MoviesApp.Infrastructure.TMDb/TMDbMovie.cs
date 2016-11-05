@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Infrastructure.TMDb
 {
-    internal class TMDbMovie : IMovieDetails
+    internal class TMDbMovie : MovieDetails
     {
         public TMDbMovie(JToken token)
         {
@@ -41,17 +41,5 @@ namespace MoviesApp.Infrastructure.TMDb
                         ? default(DateTime)
                         : DateTime.Parse(token["release_date"].ToString());
         }
-
-        public int MovieID { get; set; }
-
-        public string Genre { get; set; }
-
-        public string MovieName { get; set; }
-
-        public string OverView { get; set; }
-
-        public string ImagePath { get; set; }
-
-        public DateTime ReleaseDate { get; set; }
     }
 }

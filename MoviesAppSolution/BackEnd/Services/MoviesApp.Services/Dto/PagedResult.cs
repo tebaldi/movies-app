@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace MoviesApp.Services.Dto
 {
     public class PagedResult<T> : IDataTransferObject
+        where T: IDataTransferObject
     {
         public T[] Results { get; set; }
 

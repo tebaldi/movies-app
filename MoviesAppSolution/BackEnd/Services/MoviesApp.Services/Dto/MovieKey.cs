@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoviesApp.Services.Dto
 {
-    public interface IDataTransferObject
+    public class MovieKey : IDataTransferObject
     {
+        public int MovieID { get; set; }
     }
 }

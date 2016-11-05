@@ -12,26 +12,33 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
         [TestMethod]
         public void ShouldCreateGetMoviesService()
         {
-            var movie1 = new Mock<IMovie>();
-            movie1.Setup(m => m.MovieID).Returns(1);
+            var movie1 = new Movie
+            {
+                MovieID = 1
+            };
 
-            var movie2 = new Mock<IMovie>();
-            movie2.Setup(m => m.MovieID).Returns(2);
+            var movie2 = new Movie
+            {
+                MovieID = 2
+            };
 
-            var pagedResult = new PagedResult<IMovie>();
-            pagedResult.PageIndex = 1;
-            pagedResult.TotalPages = 50;
-            pagedResult.TotalResults = 100;
-            pagedResult.Results = new[] { movie1.Object, movie2.Object };
+            var pagedResult = new PagedResult<Movie>
+            {
+                PageIndex = 1,
+                TotalPages = 50,
+                TotalResults = 100,
+                Results = new[] { movie1, movie2 }
+            };
 
-            var getAllMoviesResponse = new Mock<IServiceResponse<PagedResult<IMovie>>>();
+            var getAllMoviesResponse = new Mock<IServiceResponse<PagedResult<Movie>>>();
             getAllMoviesResponse.Setup(r => r.ResponseKey)
                 .Returns(Guid.Parse("95f17528-8db9-4683-83e8-0daacc4fe71a"));
             getAllMoviesResponse.Setup(r => r.Data)
                 .Returns(pagedResult);
 
-            var getAllMoviesService = new Mock<IService<IMovieSearch, PagedResult<IMovie>>>();
-            getAllMoviesService.Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IMovieSearch>>()))
+            var getAllMoviesService = new Mock<IService<MovieSearch, PagedResult<Movie>>>();
+            getAllMoviesService.Setup(s => 
+                s.ExecuteService(It.IsAny<IServiceRequest<MovieSearch>>()))
                 .Returns(getAllMoviesResponse.Object);
 
             var factory = new Mock<IMovieServiceFactory>();
@@ -41,12 +48,14 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
             var movieService = factory.Object.CreateGetMoviesService();
             Assert.IsNotNull(movieService);
 
-            var movieSearch = new Mock<IMovieSearch>();
-            movieSearch.Setup(p => p.MovieName).Returns("query_name");
-            movieSearch.Setup(p => p.Page).Returns(1);
+            var movieSearch = new MovieSearch
+            {
+                MovieName = "query_name",
+                Page = 1
+            };
 
-            var request = new Mock<IServiceRequest<IMovieSearch>>();
-            request.Setup(r => r.Data).Returns(movieSearch.Object);
+            var request = new Mock<IServiceRequest<MovieSearch>>();
+            request.Setup(r => r.Data).Returns(movieSearch);
 
             var response = movieService.ExecuteService(request.Object);
             Assert.IsNotNull(response);
@@ -61,29 +70,36 @@ namespace MoviesApp.Services.Tests.TestServiceFactory
         [TestMethod]
         public void ShouldCreateGetMovieDetailsService()
         {
-            var movie = new Mock<IMovieDetails>();
-            movie.Setup(m => m.MovieID).Returns(1);
-            movie.Setup(m => m.MovieName).Returns("MovieName");
-            movie.Setup(m => m.Genre).Returns("Genre");
-            movie.Setup(m => m.ImagePath).Returns("PosterImage");
-            movie.Setup(m => m.ReleaseDate).Returns(DateTime.Today);
-            movie.Setup(m => m.OverView).Returns("OverView");
+            var movieKey = new MovieKey
+            {
+                MovieID = 1
+            };
 
-            var getMovieDetailsRequest = new Mock<IServiceRequest<IMovieKey>>();
+            var movie = new MovieDetails
+            {
+                MovieID = movieKey.MovieID,
+                MovieName = "MovieName",
+                Genre = "Genre",
+                ImagePath = "PosterImage",
+                ReleaseDate = DateTime.Today,
+                OverView = "OverView"
+            };
+
+            var getMovieDetailsRequest = new Mock<IServiceRequest<MovieKey>>();
             getMovieDetailsRequest.Setup(r => r.RequestKey)
                 .Returns(Guid.Parse("95f17528-8db9-4683-83e8-0daacc4fe71a"));
             getMovieDetailsRequest.Setup(r => r.Data)
-                .Returns(movie.Object);
+                .Returns(movieKey);
 
-            var getMovieDetailsResponse = new Mock<IServiceResponse<IMovieDetails>>();
+            var getMovieDetailsResponse = new Mock<IServiceResponse<MovieDetails>>();
             getMovieDetailsResponse.Setup(r => r.ResponseKey)
                 .Returns(Guid.Parse("95f17528-8db9-4683-83e8-0daacc4fe71a"));
             getMovieDetailsResponse.Setup(r => r.Data)
-                .Returns(movie.Object);
+                .Returns(movie);
 
-            var getMovieDetailsService = new Mock<IService<IMovieKey, IMovieDetails>>();
+            var getMovieDetailsService = new Mock<IService<MovieKey, MovieDetails>>();
             getMovieDetailsService
-                .Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<IMovieKey>>()))
+                .Setup(s => s.ExecuteService(It.IsAny<IServiceRequest<MovieKey>>()))
                 .Returns(getMovieDetailsResponse.Object);
 
             var factory = new Mock<IMovieServiceFactory>();

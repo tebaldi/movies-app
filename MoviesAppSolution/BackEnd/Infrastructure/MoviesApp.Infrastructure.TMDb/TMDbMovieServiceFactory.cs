@@ -11,13 +11,13 @@ namespace MoviesApp.Infrastructure.TMDb
 {
     internal class TMDbMovieServiceFactory : IMovieServiceFactory
     {
-        IService<IMovieSearch, PagedResult<IMovie>> IMovieServiceFactory
+        IService<MovieSearch, PagedResult<Movie>> IMovieServiceFactory
             .CreateGetMoviesService()
         {
             return new TMDbMovieServices.GetMoviesService();
         }
 
-        IService<IMovieKey, IMovieDetails> IMovieServiceFactory
+        IService<MovieKey, MovieDetails> IMovieServiceFactory
             .CreateGetMovieDetailsService()
         {
             return new TMDbMovieServices.GetMovieDetailsService();

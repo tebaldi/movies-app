@@ -11,8 +11,8 @@ namespace MoviesApp.Infrastructure.Tests.TMDbTests
     [TestClass]
     public class TMDbMovieServicesTest
     {
-        public readonly IService<IMovieSearch, PagedResult<IMovie>> getMoviesService;
-        public readonly IService<IMovieKey, IMovieDetails> getMovieDetailsService;
+        public readonly IService<MovieSearch, PagedResult<Movie>> getMoviesService;
+        public readonly IService<MovieKey, MovieDetails> getMovieDetailsService;
 
         public TMDbMovieServicesTest()
         {
@@ -23,11 +23,13 @@ namespace MoviesApp.Infrastructure.Tests.TMDbTests
         [TestMethod]
         public void ShouldGetMovies()
         {
-            var search = new Mock<IMovieSearch>();
-            search.Setup(s => s.Page).Returns(1);
+            var search = new MovieSearch
+            {
+                Page = 1
+            };
 
-            var request = new Mock<IServiceRequest<IMovieSearch>>();
-            request.Setup(r => r.Data).Returns(search.Object);
+            var request = new Mock<IServiceRequest<MovieSearch>>();
+            request.Setup(r => r.Data).Returns(search);
 
             var response = getMoviesService.ExecuteService(request.Object);
             Assert.IsNotNull(response);
@@ -48,12 +50,14 @@ namespace MoviesApp.Infrastructure.Tests.TMDbTests
         [TestMethod]
         public void ShouldSearchMoviesByMovieName()
         {
-            var search = new Mock<IMovieSearch>();
-            search.Setup(s => s.Page).Returns(1);
-            search.Setup(s => s.MovieName).Returns("Wind");
+            var search = new MovieSearch()
+            {
+                Page = 1,
+                MovieName = "Wind"
+            };
 
-            var request = new Mock<IServiceRequest<IMovieSearch>>();
-            request.Setup(r => r.Data).Returns(search.Object);
+            var request = new Mock<IServiceRequest<MovieSearch>>();
+            request.Setup(r => r.Data).Returns(search);
 
             var response = getMoviesService.ExecuteService(request.Object);
             Assert.IsNotNull(response);
@@ -76,11 +80,13 @@ namespace MoviesApp.Infrastructure.Tests.TMDbTests
         [TestMethod]
         public void ShouldGetMovieDetails()
         {
-            var movieKey = new Mock<IMovieKey>();
-            movieKey.Setup(k => k.MovieID).Returns(550);
+            var movieKey = new MovieKey
+            {
+                MovieID = 550
+            };
 
-            var request = new Mock<IServiceRequest<IMovieKey>>();
-            request.Setup(r => r.Data).Returns(movieKey.Object);
+            var request = new Mock<IServiceRequest<MovieKey>>();
+            request.Setup(r => r.Data).Returns(movieKey);
 
             var response = getMovieDetailsService.ExecuteService(request.Object);
             Assert.IsNotNull(response);

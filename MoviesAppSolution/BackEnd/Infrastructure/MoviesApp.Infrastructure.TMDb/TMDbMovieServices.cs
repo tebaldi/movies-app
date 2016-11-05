@@ -11,10 +11,10 @@ namespace MoviesApp.Infrastructure.TMDb
 {
     internal class TMDbMovieServices
     {
-        public class GetMoviesService : IService<IMovieSearch, PagedResult<IMovie>>
+        public class GetMoviesService : IService<MovieSearch, PagedResult<Movie>>
         {
-            IServiceResponse<PagedResult<IMovie>> IService<IMovieSearch, PagedResult<IMovie>>
-                .ExecuteService(IServiceRequest<IMovieSearch> request)
+            IServiceResponse<PagedResult<Movie>> IService<MovieSearch, PagedResult<Movie>>
+                .ExecuteService(IServiceRequest<MovieSearch> request)
             {
                 var uri = request.Data.Upcoming
                     ? TMDbApi.UpcomingMovies.CreateUri(request.Data.Page)
@@ -25,15 +25,15 @@ namespace MoviesApp.Infrastructure.TMDb
                 var results = response["results"] as JArray;
 
                 var movies = results.Select(result => 
-                    new TMDbMovie(result) as IMovie).ToArray();
+                    new TMDbMovie(result) as Movie).ToArray();
 
-                var pagedResult = new PagedResult<IMovie>();
+                var pagedResult = new PagedResult<Movie>();
                 pagedResult.PageIndex = int.Parse(response["page"].ToString());
                 pagedResult.TotalPages = int.Parse(response["total_pages"].ToString());
                 pagedResult.TotalResults = int.Parse(response["total_results"].ToString());
                 pagedResult.Results = movies;
 
-                var serviceResponse = new ServiceResponse<PagedResult<IMovie>>
+                var serviceResponse = new ServiceResponse<PagedResult<Movie>>
                 {
                     ResponseKey = Guid.NewGuid(),
                     Data = pagedResult
@@ -43,17 +43,17 @@ namespace MoviesApp.Infrastructure.TMDb
             }
         }
 
-        public class GetMovieDetailsService : IService<IMovieKey, IMovieDetails>
+        public class GetMovieDetailsService : IService<MovieKey, MovieDetails>
         {
-            IServiceResponse<IMovieDetails> IService<IMovieKey, IMovieDetails>
-                .ExecuteService(IServiceRequest<IMovieKey> request)
+            IServiceResponse<MovieDetails> IService<MovieKey, MovieDetails>
+                .ExecuteService(IServiceRequest<MovieKey> request)
             {
                 var uri = TMDbApi.MovieDetails.CreateUri(request.Data.MovieID);
                 var response = TMDbApi.MakeApiRequest(uri);
 
                 var movie = new TMDbMovie(response);
 
-                var serviceResponse = new ServiceResponse<IMovieDetails>
+                var serviceResponse = new ServiceResponse<MovieDetails>
                 {
                     ResponseKey = Guid.NewGuid(),
                     Data = movie

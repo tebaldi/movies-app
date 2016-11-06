@@ -37,7 +37,8 @@ namespace MoviesApp.Xamarin.Droid.Fragments
 
             Activity.Title = "Details";
 
-            movieServiceFactory = App.ResolveFactory<IMovieServiceFactory>();
+            if(movieServiceFactory == null)
+                movieServiceFactory = App.ResolveFactory<IMovieServiceFactory>();
 
             var movieId = Arguments != null && Arguments.ContainsKey(MovieId)
                 ? Arguments.GetInt(MovieId) : 0;

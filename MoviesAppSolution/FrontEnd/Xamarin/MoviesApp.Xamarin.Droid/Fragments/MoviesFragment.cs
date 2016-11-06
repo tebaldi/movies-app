@@ -21,6 +21,7 @@ namespace MoviesApp.Xamarin.Droid.Fragments
         public const string MovieWasSelectedAction = "MovieWasSelectedAction";
         public const string MovieWasSelectedAction_MovieId = "MovieId";
 
+        private MoviesAdapter moviesAdapter;
         private CancellationTokenSource queryTokenSource;
         private string search;
 
@@ -40,10 +41,19 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             list.ItemClick += List_ItemClick;
             list.SetOnScrollListener(this);
 
-            list.Adapter = new MoviesAdapter(
-                Activity, App.ResolveFactory<IMovieServiceFactory>());
+            if (moviesAdapter == null)
+            {
+                moviesAdapter = new MoviesAdapter(
+                    Activity, App.ResolveFactory<IMovieServiceFactory>());
 
-            LoadMovies();
+                list.Adapter = moviesAdapter;
+                LoadMovies();
+            }
+            else
+            {
+                list.Adapter = moviesAdapter;
+                moviesAdapter.NotifyDataSetChanged();
+            }
         }
 
         private void List_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -89,6 +99,9 @@ namespace MoviesApp.Xamarin.Droid.Fragments
                 if (((CancellationToken)token).IsCancellationRequested)
                     return;
 
+                if (Activity == null || Activity.Handle == IntPtr.Zero)
+                    return;
+
                 Activity.RunOnUiThread(delegate
                 {
                     search = e.NewText;
@@ -96,7 +109,7 @@ namespace MoviesApp.Xamarin.Droid.Fragments
                     LoadMovies();
                 });
 
-            }, queryTokenSource.Token, 1500, 0);
+            }, queryTokenSource.Token, 1000, 0);
         }
 
         private void LoadMovies()

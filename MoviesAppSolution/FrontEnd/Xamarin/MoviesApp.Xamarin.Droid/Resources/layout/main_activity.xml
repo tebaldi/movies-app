@@ -3,9 +3,8 @@
   style="@style/ui_layout"
   android:orientation="vertical">
   
-  <!--<ImageView
-        style="@style/ui_image.project"
-     />-->
+  <ImageView
+        style="@style/ui_image.project" />
 
   <FrameLayout
       android:id="@+id/frameContent"

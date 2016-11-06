@@ -109,10 +109,15 @@ namespace MoviesApp.Xamarin.Droid.Adapters
             var textBuilder = new StringBuilder();
 
             if (!String.IsNullOrEmpty(movie.Genre))
-                textBuilder.Append($"Genre: {movie.Genre}<br/>");
+                textBuilder.Append($"{movie.Genre}<br/><br/>");
 
             if (!DateTime.MinValue.Equals(movie.ReleaseDate))
-                textBuilder.Append($"Release: {movie.ReleaseDate}");
+            {
+                var releasetext = movie.ReleaseDate.Date > DateTime.Today
+                    ? "Upcoming on " : "Released on";
+
+                textBuilder.Append($"{releasetext}{movie.ReleaseDate.ToShortDateString()}");
+            }
 
             content.TextFormatted = Android.Text.Html.FromHtml(textBuilder.ToString());
         }
@@ -129,8 +134,6 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                         .Load(movie.ImagePath)
                         .Placeholder(Resource.Drawable.Icon)
                         .Error(Resource.Drawable.Icon)
-                        .Resize(200, 200)
-                        .CenterCrop()
                         .Into(imageView);
                 }
                 catch (Exception e)
@@ -179,6 +182,12 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                     movies.AddRange(result.Results);
                     lastResult = result;
                     NotifyDataSetChanged();
+
+                    if (!movies.Any())
+                    {
+                        Toast.MakeText(context, "We can´t find any movies this time.",
+                            ToastLength.Short).Show();
+                    }
                 })
                 .Build();
 

@@ -35,6 +35,8 @@ namespace MoviesApp.Xamarin.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
+            Activity.Title = "Details";
+
             movieServiceFactory = App.ResolveFactory<IMovieServiceFactory>();
 
             var movieId = Arguments != null && Arguments.ContainsKey(MovieId)
@@ -57,13 +59,18 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             var textBuilder = new StringBuilder();
 
             if (!String.IsNullOrEmpty(movieDetails.Genre))
-                textBuilder.Append($"Genre: {movieDetails.Genre}<br/>");
+                textBuilder.Append($"{movieDetails.Genre}<br/><br/>");
 
             if (!String.IsNullOrEmpty(movieDetails.OverView))
-                textBuilder.Append($"OverView: {movieDetails.OverView}<br/>");
+                textBuilder.Append($"OverView<br/> {movieDetails.OverView}<br/><br/>");
 
             if (!DateTime.MinValue.Equals(movieDetails.ReleaseDate))
-                textBuilder.Append($"Release: {movieDetails.ReleaseDate}");
+            {
+                var releasetext = movieDetails.ReleaseDate.Date > DateTime.Today
+                    ? "Upcoming on " : "Released on";
+
+                textBuilder.Append($"{releasetext}{movieDetails.ReleaseDate.ToShortDateString()}<br/><br/>");
+            }
 
             content.TextFormatted = Android.Text.Html.FromHtml(textBuilder.ToString());
         }

@@ -33,6 +33,8 @@ namespace MoviesApp.Xamarin.Droid.Fragments
         {
             base.OnViewCreated(view, savedInstanceState);
 
+            Activity.Title = "Movie List";
+
             var list = View.FindViewById<ListView>(Android.Resource.Id.List);
             list.ItemClick -= List_ItemClick;
             list.ItemClick += List_ItemClick;
@@ -40,11 +42,6 @@ namespace MoviesApp.Xamarin.Droid.Fragments
 
             list.Adapter = new MoviesAdapter(
                 Activity, App.ResolveFactory<IMovieServiceFactory>());
-        }
-
-        public override void OnResume()
-        {
-            base.OnResume();
 
             LoadMovies();
         }
@@ -104,6 +101,9 @@ namespace MoviesApp.Xamarin.Droid.Fragments
 
         private void LoadMovies()
         {
+            if (View == null || View.Handle == IntPtr.Zero)
+                return;
+
             var list = View.FindViewById<ListView>(Android.Resource.Id.List);
             var adapter = list?.Adapter as MoviesAdapter;
 

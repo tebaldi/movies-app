@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/MovieDetails" />
-
-  <ImageView
-    android:id="@+id/img"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scaleType="fitStart" />
-
-  <TextView
-    android:id="@+id/header"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-
-  <TextView
-    android:id="@+id/content"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/ui_layout.panel">
   
-</LinearLayout>
+  <LinearLayout
+    style="@style/ui_matchParent"
+    android:orientation="vertical">
+  
+    <TextView
+        style="@style/ui_text.header"
+        android:id="@+id/header" />
+  
+    <ImageView
+        style="@style/ui_image.medium"
+        android:id="@+id/img"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+      style="@style/ui_layout.subpanel">
+    
+      <TextView
+        style="@style/ui_text.content"
+        android:id="@+id/content"/>
+    
+    </LinearLayout>  
+  </LinearLayout>
+  
+</ScrollView>

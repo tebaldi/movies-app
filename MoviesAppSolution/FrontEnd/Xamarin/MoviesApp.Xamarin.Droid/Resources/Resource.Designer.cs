@@ -43,6 +43,116 @@ namespace MoviesApp.Xamarin.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f060002
+			public const int ui_backgroundColor = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int ui_panelColor = 2131099651;
+			
+			// aapt resource value: 0x7f060000
+			public const int ui_primaryColor = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int ui_secondaryColor = 2131099649;
+			
+			// aapt resource value: 0x7f060004
+			public const int ui_subpanelColor = 2131099652;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f070016
+			public const int image_height = 2131165206;
+			
+			// aapt resource value: 0x7f070014
+			public const int image_height_thumb = 2131165204;
+			
+			// aapt resource value: 0x7f070015
+			public const int image_width = 2131165205;
+			
+			// aapt resource value: 0x7f070013
+			public const int image_width_thumb = 2131165203;
+			
+			// aapt resource value: 0x7f070008
+			public const int margin_huge = 2131165192;
+			
+			// aapt resource value: 0x7f070007
+			public const int margin_large = 2131165191;
+			
+			// aapt resource value: 0x7f070009
+			public const int margin_massive = 2131165193;
+			
+			// aapt resource value: 0x7f070006
+			public const int margin_medium = 2131165190;
+			
+			// aapt resource value: 0x7f070005
+			public const int margin_small = 2131165189;
+			
+			// aapt resource value: 0x7f070003
+			public const int padding_huge = 2131165187;
+			
+			// aapt resource value: 0x7f070002
+			public const int padding_large = 2131165186;
+			
+			// aapt resource value: 0x7f070004
+			public const int padding_massive = 2131165188;
+			
+			// aapt resource value: 0x7f070001
+			public const int padding_medium = 2131165185;
+			
+			// aapt resource value: 0x7f070000
+			public const int padding_small = 2131165184;
+			
+			// aapt resource value: 0x7f07000e
+			public const int textSize_huge = 2131165198;
+			
+			// aapt resource value: 0x7f07000d
+			public const int textSize_large = 2131165197;
+			
+			// aapt resource value: 0x7f07000f
+			public const int textSize_massive1 = 2131165199;
+			
+			// aapt resource value: 0x7f070010
+			public const int textSize_massive2 = 2131165200;
+			
+			// aapt resource value: 0x7f070011
+			public const int textSize_massive3 = 2131165201;
+			
+			// aapt resource value: 0x7f070012
+			public const int textSize_massive4 = 2131165202;
+			
+			// aapt resource value: 0x7f07000c
+			public const int textSize_medium = 2131165196;
+			
+			// aapt resource value: 0x7f07000b
+			public const int textSize_small = 2131165195;
+			
+			// aapt resource value: 0x7f07000a
+			public const int textSize_tiny = 2131165194;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -68,23 +178,23 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070003
-			public const int content = 2131165187;
+			// aapt resource value: 0x7f0a0003
+			public const int content = 2131361795;
 			
-			// aapt resource value: 0x7f070000
-			public const int frameContent = 2131165184;
+			// aapt resource value: 0x7f0a0000
+			public const int frameContent = 2131361792;
 			
-			// aapt resource value: 0x7f070002
-			public const int header = 2131165186;
+			// aapt resource value: 0x7f0a0001
+			public const int header = 2131361793;
 			
-			// aapt resource value: 0x7f070001
-			public const int img = 2131165185;
+			// aapt resource value: 0x7f0a0002
+			public const int img = 2131361794;
 			
-			// aapt resource value: 0x7f070005
-			public const int menuRefresh = 2131165189;
+			// aapt resource value: 0x7f0a0005
+			public const int menuRefresh = 2131361797;
 			
-			// aapt resource value: 0x7f070004
-			public const int menuSearch = 2131165188;
+			// aapt resource value: 0x7f0a0004
+			public const int menuSearch = 2131361796;
 			
 			static Id()
 			{
@@ -124,8 +234,8 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int movies_fragment_menu = 2131099648;
+			// aapt resource value: 0x7f090000
+			public const int movies_fragment_menu = 2131296256;
 			
 			static Menu()
 			{
@@ -140,17 +250,14 @@ namespace MoviesApp.Xamarin.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050002
+			public const int AppName = 2131034114;
+			
 			// aapt resource value: 0x7f050001
 			public const int ApplicationName = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int Hello = 2131034112;
-			
-			// aapt resource value: 0x7f050003
-			public const int MovieDetails = 2131034115;
-			
-			// aapt resource value: 0x7f050002
-			public const int Movies = 2131034114;
 			
 			static String()
 			{
@@ -158,6 +265,64 @@ namespace MoviesApp.Xamarin.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int Theme_Movies = 2131230720;
+			
+			// aapt resource value: 0x7f08000b
+			public const int ui_image = 2131230731;
+			
+			// aapt resource value: 0x7f08000e
+			public const int ui_image_medium = 2131230734;
+			
+			// aapt resource value: 0x7f08000c
+			public const int ui_image_project = 2131230732;
+			
+			// aapt resource value: 0x7f08000d
+			public const int ui_image_thumb = 2131230733;
+			
+			// aapt resource value: 0x7f080005
+			public const int ui_layout = 2131230725;
+			
+			// aapt resource value: 0x7f080006
+			public const int ui_layout_panel = 2131230726;
+			
+			// aapt resource value: 0x7f080007
+			public const int ui_layout_subpanel = 2131230727;
+			
+			// aapt resource value: 0x7f080003
+			public const int ui_matchHeight = 2131230723;
+			
+			// aapt resource value: 0x7f080001
+			public const int ui_matchParent = 2131230721;
+			
+			// aapt resource value: 0x7f080004
+			public const int ui_matchWidth = 2131230724;
+			
+			// aapt resource value: 0x7f080008
+			public const int ui_text = 2131230728;
+			
+			// aapt resource value: 0x7f08000a
+			public const int ui_text_content = 2131230730;
+			
+			// aapt resource value: 0x7f080009
+			public const int ui_text_header = 2131230729;
+			
+			// aapt resource value: 0x7f080002
+			public const int ui_wrapContent = 2131230722;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

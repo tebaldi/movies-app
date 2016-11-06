@@ -11,18 +11,22 @@ using MoviesApp.Xamarin.Droid.Fragments;
 
 namespace MoviesApp.Xamarin.Droid
 {
-    [Activity(Label = "ArcTouch Movies", MainLauncher = true, Icon = "@drawable/icon",
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/AppName", MainLauncher = true,
+        ConfigurationChanges = 
+            Android.Content.PM.ConfigChanges.KeyboardHidden |
+            Android.Content.PM.ConfigChanges.Orientation |
+            Android.Content.PM.ConfigChanges.ScreenSize,
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.Sensor)]
     [IntentFilter(new[] { Intent.ActionSearch })]
     [MetaData(("android.app.searchable"), Resource = "@xml/searchable")]
     public class MainActivity : Activity, FragmentInteraction.IInteractionListener
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
-
             Window.RequestFeature(WindowFeatures.ActionBar);
             Window.RequestFeature(WindowFeatures.IndeterminateProgress);
+
+            base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.main_activity);
 

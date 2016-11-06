@@ -46,16 +46,10 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                 lastSearch = default(MovieSearch);
             }
 
-            lastSearch = new MovieSearch
-            {
-                MovieName = search,
-                Page = (lastSearch?.Page ?? 0) + 1
-            };
-
             if (lastResult?.PageIndex > lastResult?.TotalPages)
                 return;
 
-            LoadMoviesInBackground();
+            LoadMoviesInBackground(search);
         }
 
         public override Movie this[int position]
@@ -150,7 +144,7 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                 imageView.SetImageResource(Resource.Drawable.Icon);
         }
 
-        private void LoadMoviesInBackground()
+        private void LoadMoviesInBackground(string search)
         {
             var task = AsyncTaskExecutor<MovieSearch, PagedResult<Movie>>.Builder
                 .SetOnPreExecuteAction(() =>
@@ -188,7 +182,16 @@ namespace MoviesApp.Xamarin.Droid.Adapters
                 })
                 .Build();
 
-            task.Execute(new[] { lastSearch });
+            if (task != null)
+            {
+                lastSearch = new MovieSearch
+                {
+                    MovieName = search,
+                    Page = (lastSearch?.Page ?? 0) + 1
+                };
+
+                task.Execute(new[] { lastSearch });
+            }
         }
     }
 }

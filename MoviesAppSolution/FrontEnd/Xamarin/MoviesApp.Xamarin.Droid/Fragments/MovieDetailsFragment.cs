@@ -129,7 +129,8 @@ namespace MoviesApp.Xamarin.Droid.Fragments
                 })
                 .Build();
 
-            task.Execute(new[] { new MovieKey { MovieID = movieId } });
+            if(task != null)
+                task.Execute(new[] { new MovieKey { MovieID = movieId } });
         }
     }
 }

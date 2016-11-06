@@ -115,7 +115,7 @@ namespace MoviesApp.Xamarin.Droid.Fragments
             if (totalItemCount == 0)
                 return;
 
-            if (firstVisibleItem + visibleItemCount >= totalItemCount)
+            if (firstVisibleItem + visibleItemCount == totalItemCount)
             {
                 LoadMovies();
             }

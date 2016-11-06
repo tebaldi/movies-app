@@ -68,13 +68,6 @@ namespace MoviesApp.Infrastructure.MobileData.Tasks
 
         protected override void OnPostExecute(TResult result)
         {
-            if (!NetworkConnector.HasConnection())
-            {
-                Toast.MakeText(Application.Context,
-                    "Please verify your network connection...", ToastLength.Short)
-                    .Show();
-            }
-
             builder.onPostExecuteAction?.Invoke(result);
         }
 
@@ -113,6 +106,15 @@ namespace MoviesApp.Infrastructure.MobileData.Tasks
 
             public AsyncTaskExecutor<TParams, TResult> Build()
             {
+                if (!NetworkConnector.HasConnection())
+                {
+                    Toast.MakeText(Application.Context,
+                        "Please verify your network connection...", ToastLength.Short)
+                        .Show();
+
+                    return null;
+                }
+
                 return new AsyncTaskExecutor<TParams, TResult>(this);
             }
         }

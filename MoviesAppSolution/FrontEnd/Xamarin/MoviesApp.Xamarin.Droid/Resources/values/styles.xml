@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Themes -->
+  <style name="Theme.Movies" parent="android:Theme.Holo">
+  </style>
+
+  <!-- Width & Height -->
+  <style name="ui_matchParent">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+  </style>
+
+  <style name="ui_wrapContent">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+  <style name="ui_matchHeight">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">match_parent</item>
+  </style>
+
+  <style name="ui_matchWidth">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+  <!-- Layout -->
+  <style name="ui_layout">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+  </style>
+  
+  <style name="ui_layout.panel">
+    <item name="android:background">@color/ui_panelColor</item>
+    <item name="android:padding">@dimen/padding_medium</item>
+  </style>
+
+  <style name="ui_layout.subpanel">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@color/ui_subpanelColor</item>
+    <item name="android:padding">@dimen/padding_medium</item>
+    <item name="android:layout_marginTop">@dimen/margin_medium</item>
+  </style>
+
+  <!-- Texts -->
+  <style name="ui_text">
+    <item name="android:fontFamily">sans_serif</item>
+    <item name="android:paddingLeft">@dimen/padding_medium</item>
+  </style>
+
+  <style name="ui_text.header">
+    <item name="android:textSize">@dimen/textSize_large</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/ui_primaryColor</item>
+  </style>
+
+  <style name="ui_text.content">
+    <item name="android:textSize">@dimen/textSize_medium</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/ui_secondaryColor</item>
+  </style>
+
+  <!--Image-->
+  <style name="ui_image">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">@dimen/padding_medium</item>
+    <item name="android:gravity">center_horizontal</item>
+  </style>
+
+  <style name="ui_image.project">
+    <item name="android:src">@drawable/Arctouch</item>
+  </style>
+
+  <style name="ui_image.thumb">
+    <item name="android:layout_width">@dimen/image_width_thumb</item>
+    <item name="android:layout_height">@dimen/image_height_thumb</item>
+  </style>
+
+  <style name="ui_image.medium">
+    <item name="android:layout_width">@dimen/image_width</item>
+    <item name="android:layout_height">@dimen/image_height</item>
+  </style>
+  
+</resources>

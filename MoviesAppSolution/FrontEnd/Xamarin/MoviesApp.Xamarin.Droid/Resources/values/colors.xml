@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>  
+  <color name="ui_primaryColor">#2196f3</color>
+  <color name="ui_secondaryColor">#BDBDBD</color>
+  <color name="ui_backgroundColor">#000000</color>
+  <color name="ui_panelColor">#3a3d39</color>
+  <color name="ui_subpanelColor">#1e1e1d</color>
+</resources>

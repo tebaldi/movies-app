@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{02C80CAA-AAF8-4430-864E-85733C7B2BF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{8F60B27E-4FD1-4649-906F-931307CD513A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CC740308-9E23-4694-95F5-0A7A65FA09B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D22FDF99-3FE3-49FD-90D4-52195FFB306D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{44C2A296-3080-467A-A199-FE7642F738CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Services", "BackEnd\Services\MoviesApp.Services\MoviesApp.Services.csproj", "{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Services.Tests", "BackEnd\Services\MoviesApp.Services.Tests\MoviesApp.Services.Tests.csproj", "{55D71739-78B7-431E-8868-01186FF9DDA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Xamarin.Droid", "FrontEnd\Xamarin\MoviesApp.Xamarin.Droid\MoviesApp.Xamarin.Droid.csproj", "{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.MobileData", "BackEnd\Infrastructure\Mobile\MoviesApp.Infrastructure.MobileData\MoviesApp.Infrastructure.MobileData.csproj", "{661A57A4-18A3-484B-810B-3CB75558B779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.MobileData.Tests", "BackEnd\Infrastructure\Mobile\MoviesApp.Infrastructure.MobileData.Tests\MoviesApp.Infrastructure.MobileData.Tests.csproj", "{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.TMDb", "BackEnd\Infrastructure\MoviesApp.Infrastructure.TMDb\MoviesApp.Infrastructure.TMDb.csproj", "{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp.Infrastructure.TMDb.Tests", "BackEnd\Infrastructure\MoviesApp.Infrastructure.TMDb.Tests\MoviesApp.Infrastructure.TMDb.Tests.csproj", "{00120F6D-A47E-442F-BBB8-D919D990B292}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D71739-78B7-431E-8868-01186FF9DDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D71739-78B7-431E-8868-01186FF9DDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D71739-78B7-431E-8868-01186FF9DDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D71739-78B7-431E-8868-01186FF9DDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661A57A4-18A3-484B-810B-3CB75558B779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00120F6D-A47E-442F-BBB8-D919D990B292}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC740308-9E23-4694-95F5-0A7A65FA09B7} = {8F60B27E-4FD1-4649-906F-931307CD513A}
+		{D22FDF99-3FE3-49FD-90D4-52195FFB306D} = {8F60B27E-4FD1-4649-906F-931307CD513A}
+		{44C2A296-3080-467A-A199-FE7642F738CD} = {02C80CAA-AAF8-4430-864E-85733C7B2BF8}
+		{2E4875D4-1964-49FE-AD28-2BFB3D19B7DF} = {D22FDF99-3FE3-49FD-90D4-52195FFB306D}
+		{55D71739-78B7-431E-8868-01186FF9DDA3} = {D22FDF99-3FE3-49FD-90D4-52195FFB306D}
+		{D7D9E0B2-A43C-4574-9F27-CD6FC709CB81} = {44C2A296-3080-467A-A199-FE7642F738CD}
+		{661A57A4-18A3-484B-810B-3CB75558B779} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{07E29D1A-AA09-4C76-8AD7-A87E5B32E1A2} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{EF2C5A1D-7E69-471E-823A-04BD7EFE37C1} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+		{00120F6D-A47E-442F-BBB8-D919D990B292} = {CC740308-9E23-4694-95F5-0A7A65FA09B7}
+	EndGlobalSection
+EndGlobal
